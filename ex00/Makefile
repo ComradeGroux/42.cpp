@@ -1,0 +1,59 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/28 16:34:54 by vgroux            #+#    #+#              #
+#    Updated: 2023/03/28 16:43:43 by vgroux           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+GREENGREEN = \033[38;5;46m
+RED = \033[0;31m
+GREY = \033[38;5;240m
+RESET = \033[0m
+
+NAME =     megaphone
+
+CC =         c++
+CFLAGS =     -Wall -Wextra -Werror -std=c++98
+RM =         rm -rf
+
+DIR_O = objs/
+
+SRCS =	megaphone.cpp
+
+OBJS =		${SRCS:%.cpp=${DIR_O}%.o}
+
+${NAME}: ${OBJS}
+	@echo "$(RESET)[$(GREENGREEN)${NAME}$(RESET)]: ${NAME} objects were created${GREY}"
+	${CC} ${OBJS} -o ${NAME}
+	@echo "$(RESET)[$(GREENGREEN)${NAME}$(RESET)]: ${NAME} created !"
+
+all: ${NAME}
+
+${DIR_O}%.o:${DIR_S}%.cpp
+	@printf "${GREY}"
+	@mkdir -p ${DIR_O}
+	${CC} ${CFLAGS} -o $@ -c $<
+
+clean:
+	@echo "[$(RED)${NAME}$(RESET)]: cleaning ${NAME} objects...${GREY}"
+	${RM} ${OBJS}
+	${RM} ${DIR_O}
+	${RM} ${DIR_SAN}
+	@echo "[$(RED)${NAME}$(RESET)]: ${NAME} objects were cleaned${GREY}"
+
+fclean: clean
+	@echo "${RESET}[$(RED)${NAME}$(RESET)]: cleaning ${NAME}...${GREY}"
+	${RM} ${NAME}
+	@echo "${RESET}[$(RED)${NAME}$(RESET)]: ${NAME} executable was cleaned"
+
+printcompil:
+	@echo "$(RESET)[$(GREENGREEN)${NAME}$(RESET)]: ${NAME} objects compilation...${GREY}"
+
+re: fclean printcompil all
+
+.PHONY: all clean fclean re
