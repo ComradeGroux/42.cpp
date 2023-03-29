@@ -1,3 +1,5 @@
 *.o
 megaphone
 phonebook
+a.out
+.excalidraw
