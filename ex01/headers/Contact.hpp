@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:36:11 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/29 14:18:23 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:53:15 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	std::string	firstname;
 	std::string	lastname;
 	std::string	nickname;
-	int			phone;
+	std::string	phone;
 	std::string	secret;
 
 public:
@@ -31,13 +31,13 @@ public:
 	Contact(std::string firstname,
 			std::string lastname,
 			std::string nickname,
-			int phone,
+			std::string phone,
 			std::string secret);
 	~Contact(void);
 	std::string	getFirstname(void) const;
 	std::string	getLastname(void) const;
 	std::string	getNickname(void) const;
-	int			getPhone(void) const;
+	std::string	getPhone(void) const;
 	std::string	getSecret(void) const;
 	void		printInfo(void) const;
 	void		printFull(void) const;

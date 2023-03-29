@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/29 15:20:34 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:56:23 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,11 @@ std::string PhoneBook::addStr(std::string str) const
 	std::cin >> s;
 	return (s);
 }
-int	PhoneBook::addInt(std::string str) const
-{
-	std::cout << str << ": ";
-	return (0);
-}
 
 void	PhoneBook::addContact(void)
 {
 	Contact new_Contact(addStr("Firstname"), addStr("Lastname"),
-						addStr("Nickname"), addInt("Phone"),
+						addStr("Nickname"), addStr("Phone"),
 						addStr("Darkest secret"));
 	int		i;
 

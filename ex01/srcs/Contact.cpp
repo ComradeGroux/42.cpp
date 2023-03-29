@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:25:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/29 14:18:44 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:53:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Contact::Contact(void)
 	return ;
 }
 
-Contact::Contact(std::string firstname, std::string lastname, std::string nickname, int phone, std::string secret)
+Contact::Contact(std::string firstname, std::string lastname, std::string nickname, std::string phone, std::string secret)
 	: firstname(firstname), lastname(lastname), nickname(nickname), phone(phone), secret(secret)
 {
 	return ;
@@ -43,7 +43,7 @@ std::string Contact::getNickname(void) const
 	return this->nickname;
 }
 
-int Contact::getPhone(void) const
+std::string Contact::getPhone(void) const
 {
 	return this->phone;
 }
