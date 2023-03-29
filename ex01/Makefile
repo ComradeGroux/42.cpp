@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 16:34:54 by vgroux            #+#    #+#              #
-#    Updated: 2023/03/28 21:22:12 by vgroux           ###   ########.fr        #
+#    Updated: 2023/03/29 15:23:37 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RED = \033[0;31m
 GREY = \033[38;5;240m
 RESET = \033[0m
 
-NAME =     phonebook
+NAME =     myPhonebook
 
 CC =         c++
 CFLAGS =     -Wall -Wextra -Werror -std=c++98

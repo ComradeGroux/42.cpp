@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:25:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/28 20:51:42 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/29 14:18:44 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ Contact::Contact(void)
 }
 
 Contact::Contact(std::string firstname, std::string lastname, std::string nickname, int phone, std::string secret)
+	: firstname(firstname), lastname(lastname), nickname(nickname), phone(phone), secret(secret)
 {
-	this->firstname = firstname;
-	this->lastname = lastname;
-	this->nickname = nickname;
-	this->phone = phone;
-	this->secret = secret;
+	return ;
 }
 
 Contact::~Contact(void)
@@ -31,37 +28,37 @@ Contact::~Contact(void)
 	return ;
 }
 
-std::string Contact::getFirstname(void)
+std::string Contact::getFirstname(void) const
 {
 	return this->firstname;
 }
 
-std::string Contact::getLastname(void)
+std::string Contact::getLastname(void) const
 {
 	return this->lastname;
 }
 
-std::string Contact::getNickname(void)
+std::string Contact::getNickname(void) const
 {
 	return this->nickname;
 }
 
-int Contact::getPhone(void)
+int Contact::getPhone(void) const
 {
 	return this->phone;
 }
 
-std::string Contact::getSecret(void)
+std::string Contact::getSecret(void) const
 {
 	return this->secret;
 }
 
-void Contact::printInfo(void)
+void Contact::printInfo(void) const
 {
 	
 }
 
-void Contact::printFull(void)
+void Contact::printFull(void) const
 {
 	std::cout << "First name:     " << this->firstname << std::endl;
 	std::cout << "Last name:      " << this->lastname << std::endl;
@@ -70,7 +67,7 @@ void Contact::printFull(void)
 	std::cout << "Darkest secret: " << this->secret << std::endl;
 }
 
-bool Contact::isNull(void)
+bool Contact::isNull(void) const
 {
 	if (this->firstname.empty())
 		return (true);

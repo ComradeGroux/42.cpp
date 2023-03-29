@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:34:36 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/28 21:54:48 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:16:00 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ class PhoneBook
 {
 	private:
 		Contact		contacts[8];
-		std::string	addStr(std::string str);
-		int			addInt(std::string str);
+		std::string	addStr(std::string str) const;
+		int			addInt(std::string str) const;
 
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
 		void	addContact(void);
-		int		numberContact(void);
-		void	displayTable(void);
+		int		numberContact(void) const;
+		void	displayTable(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/29 02:28:43 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/29 15:20:34 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@ PhoneBook::~PhoneBook(void)
 	return ;
 }
 
-std::string addStr(std::string str)
+std::string PhoneBook::addStr(std::string str) const
 {
 	std::string	s;
 
-	std::cout << str;
+	std::cout << str << ": ";
 	std::cin >> s;
+	return (s);
+}
+int	PhoneBook::addInt(std::string str) const
+{
+	std::cout << str << ": ";
+	return (0);
 }
 
 void	PhoneBook::addContact(void)
@@ -42,7 +48,7 @@ void	PhoneBook::addContact(void)
 	// Ajouter en consequence
 }
 
-int	PhoneBook::numberContact(void)
+int	PhoneBook::numberContact(void) const
 {
 	for (int i = 0; i < 8; i++)
 	{
@@ -52,7 +58,7 @@ int	PhoneBook::numberContact(void)
 	return (8);
 }
 
-void PhoneBook::displayTable(void)
+void PhoneBook::displayTable(void) const
 {
 	int	select;
 
@@ -73,19 +79,19 @@ void PhoneBook::displayTable(void)
 			std::cout << std::setw(10) << this->contacts[i].getNickname() << "|" << std::endl;
 		}
 		std::cout << "|-------------------------------------------|" << std::endl;
-	}
-	while (true)
-	{
-		std::cout << "Select an index to display more information: " << std::endl;
-		while (!(std::cin >> select))
+		while (true)
 		{
-			std::cin.clear();
-			std::cin.ignore(1000, '\n');
-			std::cout << "Please, enter a number: ";
+			std::cout << "Select an index to display more information: " << std::endl;
+			while (!(std::cin >> select))
+			{
+				std::cin.clear();
+				std::cin.ignore(1000, '\n');
+				std::cout << "Please, enter a number: ";
+			}
+			if (this->contacts[select].isNull() == false)
+				break ;
 		}
-		if (this->contacts[select].isNull() == false)
-			break ;
+		this->contacts[select].printFull();
 	}
-	this->contacts[select].printFull();
 }
 
