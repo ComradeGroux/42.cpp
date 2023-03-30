@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/30 13:18:37 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/30 15:24:02 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,17 @@ std::string PhoneBook::_addStr(std::string str) const
 	std::string	s;
 
 	std::cout << str << ": ";
-	std::cin >> s;
+	std::getline(std::cin, s);
 	return (s);
 }
 
 std::string	PhoneBook::_addPhone(std::string str) const
 {
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (std::isspace(str[i]))
+			str.erase(i--, 1);
+	}
 	if (_isPhoneNumberValid(str) == false)
 	{
 		std::cout << "Your phone number's format isn't valid." << std::endl;
@@ -43,18 +48,9 @@ std::string	PhoneBook::_addPhone(std::string str) const
 
 bool	PhoneBook::_isPhoneNumberValid(std::string str) const
 {
-	regex_t phone_regex;
+	std::regex	pReg("\\+?\\d{1,4}?\\(?\\d{1,3}?\\)?\\d{1,4}\\d{1,4}\\d{1,9}");
 
-	int ret = regcomp(&phone_regex, "^\\+?[0-9]{1,3}[\\-\\s]?\\([0-9]{3}\\)[\\-\\s]?[0-9]{3}[\\-\\s]?[0-9]{4}$", REG_EXTENDED);
-	if (ret != 0) {
-		regfree(&phone_regex);
-		return false;
-	}
-
-	ret = regexec(&phone_regex, str.c_str(), 0, NULL, 0);
-	regfree(&phone_regex);
-
-	return (ret == 0);
+	return std::regex_match(str, pReg);
 }
 
 void	PhoneBook::addContact(void)
@@ -65,8 +61,14 @@ void	PhoneBook::addContact(void)
 	int		i;
 
 	i = numberContact();
-	// Verifier si on atteins le max 
-	// Ajouter en consequence
+	if (i < 7)
+		this->_contacts[i] = new_Contact;
+	else
+	{
+		// Verifier si on atteins le max 
+		// Ajouter en consequence
+		;
+	}
 }
 
 int	PhoneBook::numberContact(void) const

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:52:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/30 13:18:58 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/30 14:57:52 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	while (!std::cin.eof())
 	{
 		std::cout << "Enter a command: ";
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 		if (!cmd.compare("SEARCH") || !cmd.compare("search"))
 			pb.displayTable();
 		else if (!cmd.compare("ADD") || !cmd.compare("add"))
@@ -28,11 +28,11 @@ int	main(void)
 			if (pb.numberContact() > 7)
 			{
 				std::cout << "Warning ! Your phonebook is full. The oldest contact will be change with the new one. Are you sure [y/n] ? ";
-				std::cin >> cmd;
+				std::getline(std::cin, cmd);
 				while (cmd.compare("y") && cmd.compare("n") && cmd.compare("Y") && cmd.compare("N"))
 				{
 					std::cout << "Invalid entrance, please try again [y/n]: ";
-					std::cin >> cmd;
+					std::getline(std::cin, cmd);
 				}
 				if (!cmd.compare("y") || !cmd.compare("Y"))
 					pb.addContact();

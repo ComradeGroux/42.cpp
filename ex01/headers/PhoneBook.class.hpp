@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:34:36 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/30 13:18:51 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/30 14:53:25 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define PHONEBOOK_HPP
 
 #include "Contact.class.hpp"
-#include <regex.h>
+#include <regex>
+#include <cctype>
+
 class PhoneBook
 {
 	private:
