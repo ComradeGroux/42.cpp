@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 16:34:54 by vgroux            #+#    #+#              #
-#    Updated: 2023/03/29 15:53:40 by vgroux           ###   ########.fr        #
+#    Updated: 2023/03/30 13:18:29 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ DIR_S = srcs/
 DIR_O = objs/
 DIR_H = headers/
 
-SRCS_LST =	PhoneBook.cpp \
-			Contact.cpp \
+SRCS_LST =	PhoneBook.class.cpp \
+			Contact.class.cpp \
 			main.cpp
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}

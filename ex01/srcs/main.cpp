@@ -6,11 +6,11 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:52:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/29 15:27:07 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/30 13:18:58 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "PhoneBook.class.hpp"
 
 int	main(void)
 {

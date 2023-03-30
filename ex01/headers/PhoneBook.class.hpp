@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:34:36 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/29 15:51:20 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/30 13:18:51 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include "Contact.hpp"
-
+#include "Contact.class.hpp"
+#include <regex.h>
 class PhoneBook
 {
 	private:
-		Contact		contacts[8];
-		std::string	addStr(std::string str) const;
+		Contact		_contacts[8];
+		std::string	_addStr(std::string str) const;
+		std::string _addPhone(std::string str) const;
+		bool		_isPhoneNumberValid(std::string str) const;
 
 	public:
 		PhoneBook(void);
