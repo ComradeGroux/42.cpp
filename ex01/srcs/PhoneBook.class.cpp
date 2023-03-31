@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/30 15:24:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/31 12:35:36 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,7 @@ std::string PhoneBook::_addStr(std::string str) const
 
 std::string	PhoneBook::_addPhone(std::string str) const
 {
-	for (size_t i = 0; i < str.length(); i++)
-	{
-		if (std::isspace(str[i]))
-			str.erase(i--, 1);
-	}
+	str = _removeWhitespace(str);
 	if (_isPhoneNumberValid(str) == false)
 	{
 		std::cout << "Your phone number's format isn't valid." << std::endl;
@@ -48,30 +44,61 @@ std::string	PhoneBook::_addPhone(std::string str) const
 
 bool	PhoneBook::_isPhoneNumberValid(std::string str) const
 {
-	std::regex	pReg("\\+?\\d{1,4}?\\(?\\d{1,3}?\\)?\\d{1,4}\\d{1,4}\\d{1,9}");
+	// Regex a partir de C++11 ou avec utilisation de Boost.
+	// Sinon librarie externe ou recoder les fonction donc le suicide
+	// std::regex	pReg("\\+?\\d{1,4}?\\(?\\d{1,3}?\\)?\\d{1,4}\\d{1,4}\\d{1,9}");
+	// return std::regex_match(str, pReg);
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (!std::isdigit(str[i]))
+		{
+			if (i == 0 && str[i] == '+')
+				;
+			else
+				return (false);
+		}
+	}
+	return (true);
+}
 
-	return std::regex_match(str, pReg);
+std::string	PhoneBook::_removeWhitespace(std::string str) const
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (std::isspace(str[i]))
+			str.erase(i--, 1);
+	}
+	return (str);
 }
 
 void	PhoneBook::addContact(void)
 {
-	Contact new_Contact(_addStr("Firstname"), _addStr("Lastname"),
-						_addStr("Nickname"), _addPhone(_addStr("Phone")),
-						_addStr("Darkest secret"));
-	int		i;
+	std::string	firstname = _addStr("Firstname");
+	std::string	lastname = _addStr("Lastname");
+	std::string	nickname = _addStr("Nickname");
+	std::string	phone = _addPhone(_addStr("Phone"));
+	std::string secret = _addStr("Darkest secret");
+	Contact new_Contact(firstname, lastname, nickname,
+			phone, secret);
+	int		nbContact;
 
-	i = numberContact();
-	if (i < 7)
-		this->_contacts[i] = new_Contact;
+	nbContact = numberContacts();
+	if (nbContact < 8)
+		this->_contacts[nbContact] = new_Contact;
 	else
 	{
-		// Verifier si on atteins le max 
-		// Ajouter en consequence
-		;
+		Contact newTab[8];
+		nbContact--;
+		for (int i = nbContact - 1; i >= 0; i--)
+			newTab[i] = this->_contacts[i + 1];
+		newTab[7] = new_Contact;
+		for (int i = 0; i <= nbContact; i++)
+			this->_contacts[i] = newTab[i];
+		// this->_contacts[7] = new_Contact;
 	}
 }
 
-int	PhoneBook::numberContact(void) const
+int	PhoneBook::numberContacts(void) const
 {
 	for (int i = 0; i < 8; i++)
 	{
@@ -102,16 +129,22 @@ void PhoneBook::displayTable(void) const
 			std::cout << std::setw(10) << this->_contacts[i].getNickname() << "|" << std::endl;
 		}
 		std::cout << "|-------------------------------------------|" << std::endl;
+		std::cout << "Select an index to display more information: ";
 		while (true)
 		{
-			std::cout << "Select an index to display more information: " << std::endl;
 			while (!(std::cin >> select))
 			{
 				std::cin.clear();
 				std::cin.ignore(1000, '\n');
 				std::cout << "Please, enter a number: ";
 			}
-			if (this->_contacts[select].isNull() == false)
+			if (select < 0 || select >= numberContacts())
+			{
+				std::cin.clear();
+				std::cin.ignore(1000, '\n');
+				std::cout << "You should select a valid index: ";
+			}
+			else if (this->_contacts[select].isNull() == false)
 				break ;
 		}
 		this->_contacts[select].printFull();

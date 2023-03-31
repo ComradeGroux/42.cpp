@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:52:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/30 14:57:52 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/31 11:47:26 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 			pb.displayTable();
 		else if (!cmd.compare("ADD") || !cmd.compare("add"))
 		{
-			if (pb.numberContact() > 7)
+			if (pb.numberContacts() >= 8)
 			{
 				std::cout << "Warning ! Your phonebook is full. The oldest contact will be change with the new one. Are you sure [y/n] ? ";
 				std::getline(std::cin, cmd);
