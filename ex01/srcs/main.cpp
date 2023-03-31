@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:52:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/31 11:47:26 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/31 14:09:24 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ int	main(void)
 	{
 		std::cout << "Enter a command: ";
 		std::getline(std::cin, cmd);
-		if (!cmd.compare("SEARCH") || !cmd.compare("search"))
+		if (cmd.empty())
+			continue;
+		else if (!cmd.compare("SEARCH"))
 			pb.displayTable();
-		else if (!cmd.compare("ADD") || !cmd.compare("add"))
+		else if (!cmd.compare("ADD"))
 		{
 			if (pb.numberContacts() >= 8)
 			{
@@ -40,7 +42,7 @@ int	main(void)
 			else
 				pb.addContact();
 		}
-		else if (!cmd.compare("EXIT") || !cmd.compare("exit"))
+		else if (!cmd.compare("EXIT"))
 			break;
 		else if (!std::cin.eof())
 			std::cout << "Only ADD, SEARCH or EXIT commands are accepted" << std::endl;

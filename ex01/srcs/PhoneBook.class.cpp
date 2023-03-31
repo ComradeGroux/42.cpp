@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/31 12:35:36 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/03/31 14:12:02 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ std::string PhoneBook::_addStr(std::string str) const
 
 	std::cout << str << ": ";
 	std::getline(std::cin, s);
+	while (s.empty())
+	{
+		std::cout << "This can't be empty." << std::endl;
+		std::cout << str << ": ";
+		std::getline(std::cin, s);
+	}
 	return (s);
 }
 
@@ -94,7 +100,6 @@ void	PhoneBook::addContact(void)
 		newTab[7] = new_Contact;
 		for (int i = 0; i <= nbContact; i++)
 			this->_contacts[i] = newTab[i];
-		// this->_contacts[7] = new_Contact;
 	}
 }
 
