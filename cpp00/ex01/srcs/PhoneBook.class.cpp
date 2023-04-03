@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/03 12:02:18 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/03 19:13:24 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ std::string PhoneBook::_addStr(std::string str) const
 	std::string	s;
 
 	std::cout << str << ": ";
-	std::getline(std::cin, s);
-	while (s.empty())
+	while (!std::getline(std::cin, s) || s.empty())
 	{
+		if (std::cin.eof())
+			break;
 		std::cout << "This can't be empty." << std::endl;
 		std::cout << str << ": ";
-		std::getline(std::cin, s);
 	}
 	return (s);
 }
@@ -41,10 +41,7 @@ std::string	PhoneBook::_addPhone(std::string str) const
 {
 	str = _removeWhitespace(str);
 	if (_isPhoneNumberValid(str) == false)
-	{
-		std::cout << "Your phone number's format isn't valid." << std::endl;
 		return (_addPhone(_addStr("Please enter a valid number")));
-	}
 	return (str);
 }
 
@@ -59,8 +56,21 @@ bool	PhoneBook::_isPhoneNumberValid(std::string str) const
 			if (i == 0 && str[i] == '+')
 				;
 			else
+			{
+				std::cout << "Your phone number's format isn't valid." << std::endl;
 				return (false);
+			}
 		}
+	}
+	if (str.length() < 4)
+	{
+		std::cout << "Your phone number's is too small." << std::endl;
+		return (false);
+	}
+	else if (str.length() > 15)
+	{
+		std::cout << "Your phone number's is too big." << std::endl;
+		return (false);
 	}
 	return (true);
 }
@@ -130,7 +140,7 @@ void PhoneBook::displayTable(void) const
 			_printFormated(this->_contacts[i].getFirstname());
 			_printFormated(this->_contacts[i].getLastname());
 			_printFormated(this->_contacts[i].getNickname());
-			std::cout << std::endl << "|-------------------------------------------|" << std::endl << std::endl;
+			std::cout << "|" << std::endl << "|-------------------------------------------|" << std::endl;
 		}
 		std::cout << "Select an index to display more information (-1 to exit this menu): ";
 		while (true)
@@ -159,12 +169,6 @@ void PhoneBook::displayTable(void) const
 
 void	PhoneBook::_printFormated(std::string value) const
 {
-	// std::cout << "|" << std::setw(10) << i << "|";
-	// std::cout.width(10);
-	// std::cout.fill(' ');
-	// std::cout << this->_contacts[i].getFirstname() << "|";
-	// std::cout << std::setw(10) << this->_contacts[i].getLastname() << "|";
-	// std::cout << std::setw(10) << this->_contacts[i].getNickname() << "|" << std::endl;
 	std::cout << "|";
 	std::cout << std::setw(10);
 	std::cout << std::setfill(' ');
