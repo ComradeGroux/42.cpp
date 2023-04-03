@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 18:34:36 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/31 11:34:33 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/03 11:53:11 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class PhoneBook
 		std::string _addPhone(std::string str) const;
 		bool		_isPhoneNumberValid(std::string str) const;
 		std::string	_removeWhitespace(std::string str) const;
+		void		_printFormated(std::string value) const;
 
 	public:
 		PhoneBook(void);

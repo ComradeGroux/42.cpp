@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/31 14:12:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/03 11:56:52 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ std::string	PhoneBook::_addPhone(std::string str) const
 bool	PhoneBook::_isPhoneNumberValid(std::string str) const
 {
 	// Regex a partir de C++11 ou avec utilisation de Boost.
-	// Sinon librarie externe ou recoder les fonction donc le suicide
 	// std::regex	pReg("\\+?\\d{1,4}?\\(?\\d{1,3}?\\)?\\d{1,4}\\d{1,4}\\d{1,9}");
-	// return std::regex_match(str, pReg);
 	for (size_t i = 0; i < str.length(); i++)
 	{
 		if (!std::isdigit(str[i]))
@@ -128,12 +126,12 @@ void PhoneBook::displayTable(void) const
 		{
 			if (this->_contacts[i].isNull())
 				break ;
-			std::cout << "|" << std::setw(10) << i << "|";
-			std::cout << std::setw(10) << this->_contacts[i].getFirstname() << "|";
-			std::cout << std::setw(10) << this->_contacts[i].getLastname() << "|";
-			std::cout << std::setw(10) << this->_contacts[i].getNickname() << "|" << std::endl;
+			std::cout << "|" << std::setw(10) << std::setfill(' ') << i;
+			_printFormated(this->_contacts[i].getFirstname());
+			_printFormated(this->_contacts[i].getLastname());
+			_printFormated(this->_contacts[i].getNickname());
+			std::cout << std::endl << "|-------------------------------------------|" << std::endl;
 		}
-		std::cout << "|-------------------------------------------|" << std::endl;
 		std::cout << "Select an index to display more information: ";
 		while (true)
 		{
@@ -154,4 +152,21 @@ void PhoneBook::displayTable(void) const
 		}
 		this->_contacts[select].printFull();
 	}
+}
+
+void	PhoneBook::_printFormated(std::string value) const
+{
+	// std::cout << "|" << std::setw(10) << i << "|";
+	// std::cout.width(10);
+	// std::cout.fill(' ');
+	// std::cout << this->_contacts[i].getFirstname() << "|";
+	// std::cout << std::setw(10) << this->_contacts[i].getLastname() << "|";
+	// std::cout << std::setw(10) << this->_contacts[i].getNickname() << "|" << std::endl;
+	std::cout << "|";
+	std::cout << std::setw(10);
+	std::cout << std::setfill(' ');
+	if (value.length() > 10)
+		std::cout << value.substr(0, 9).append(".");
+	else
+		std::cout << value;
 }
