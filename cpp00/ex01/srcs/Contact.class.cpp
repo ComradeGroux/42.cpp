@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:25:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/30 13:18:43 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/03 14:36:16 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ std::string Contact::getSecret(void) const
 
 void Contact::printFull(void) const
 {
-	std::cout << "First name:     " << this->_firstname << std::endl;
-	std::cout << "Last name:      " << this->_lastname << std::endl;
-	std::cout << "Nick name:      " << this->_nickname << std::endl;
-	std::cout << "Phone number:   " << this->_phone << std::endl;
-	std::cout << "Darkest secret: " << this->_secret << std::endl;
+	std::cout << "First name     | " << getFirstname() << std::endl;
+	std::cout << "Last name      | " << getLastname() << std::endl;
+	std::cout << "Nick name      | " << getNickname() << std::endl;
+	std::cout << "Phone number   | " << getPhone() <<std::endl;
+	std::cout << "Darkest secret | " << getSecret() << std::endl;
 }
 
 bool Contact::isNull(void) const
