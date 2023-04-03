@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/03 11:56:52 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/03 12:02:18 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,9 +130,9 @@ void PhoneBook::displayTable(void) const
 			_printFormated(this->_contacts[i].getFirstname());
 			_printFormated(this->_contacts[i].getLastname());
 			_printFormated(this->_contacts[i].getNickname());
-			std::cout << std::endl << "|-------------------------------------------|" << std::endl;
+			std::cout << std::endl << "|-------------------------------------------|" << std::endl << std::endl;
 		}
-		std::cout << "Select an index to display more information: ";
+		std::cout << "Select an index to display more information (-1 to exit this menu): ";
 		while (true)
 		{
 			while (!(std::cin >> select))
@@ -141,16 +141,19 @@ void PhoneBook::displayTable(void) const
 				std::cin.ignore(1000, '\n');
 				std::cout << "Please, enter a number: ";
 			}
-			if (select < 0 || select >= numberContacts())
+			if (select == -1)
+				break;
+			else if (select < 0 || select >= numberContacts())
 			{
 				std::cin.clear();
 				std::cin.ignore(1000, '\n');
 				std::cout << "You should select a valid index: ";
 			}
 			else if (this->_contacts[select].isNull() == false)
-				break ;
+				break;
 		}
-		this->_contacts[select].printFull();
+		if (select != -1)
+			this->_contacts[select].printFull();
 	}
 }
 
