@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 16:34:54 by vgroux            #+#    #+#              #
-#    Updated: 2023/03/29 15:53:54 by vgroux           ###   ########.fr        #
+#    Updated: 2023/04/04 10:50:55 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ RM =         rm -rf
 
 DIR_O = objs/
 
-SRCS =	megaphone.cpp
+SRCS =	Zombie.class.cpp \
+		newZombie.cpp \
+		randomChump.cpp \
+		main.cpp
 
 OBJS =		${SRCS:%.cpp=${DIR_O}%.o}
 
