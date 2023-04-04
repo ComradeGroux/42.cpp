@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/28 16:34:54 by vgroux            #+#    #+#              #
-#    Updated: 2023/04/04 10:50:55 by vgroux           ###   ########.fr        #
+#    Created: 2023/04/04 14:02:43 by vgroux            #+#    #+#              #
+#    Updated: 2023/04/04 14:08:39 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,24 @@ RED = \033[0;31m
 GREY = \033[38;5;240m
 RESET = \033[0m
 
-NAME =     megaphone
+NAME =     zombie00
 
 CC =         c++
-CFLAGS =     -Wall -Wextra -Werror -std=c++98
+CFLAGS =     -Wall -Wextra -Werror -std=c++98 -pedantic
 RM =         rm -rf
 
+DIR_S = srcs/
 DIR_O = objs/
+DIR_H = headers/
 
-SRCS =	Zombie.class.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
-		main.cpp
+SRCS_LST =	main.cpp \
+			Zombie.class.cpp \
+			randomChump.cpp \
+			newZombie.cpp \
 
-OBJS =		${SRCS:%.cpp=${DIR_O}%.o}
+SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
+
+OBJS =		${SRCS:${DIR_S}%.cpp=${DIR_O}%.o}
 
 ${NAME}: ${OBJS}
 	@echo "$(RESET)[$(GREENGREEN)${NAME}$(RESET)]: ${NAME} objects were created${GREY}"
@@ -40,7 +44,7 @@ all: ${NAME}
 ${DIR_O}%.o:${DIR_S}%.cpp
 	@printf "${GREY}"
 	@mkdir -p ${DIR_O}
-	${CC} ${CFLAGS} -o $@ -c $<
+	${CC} ${CFLAGS} -I ${DIR_H} -o $@ -c $<
 
 clean:
 	@echo "[$(RED)${NAME}$(RESET)]: cleaning ${NAME} objects...${GREY}"

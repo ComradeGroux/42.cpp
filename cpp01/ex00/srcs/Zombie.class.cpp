@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 19:55:44 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/04 11:26:15 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/04 14:09:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Zombie::~Zombie(void)
 Zombie::Zombie(const Zombie& src)
 {
 	std::cout << "Copy constructor was called" << std::endl;
-	*this = src;
+	_name = src._name;
 	return ;
 }
 
