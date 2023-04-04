@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/03 19:13:24 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/04 11:28:12 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void PhoneBook::displayTable(void) const
 				std::cout << "Please, enter a number: ";
 			}
 			if (select == -1)
-				break;
+				return;
 			else if (select < 0 || select >= numberContacts())
 			{
 				std::cin.clear();
@@ -160,10 +160,9 @@ void PhoneBook::displayTable(void) const
 				std::cout << "You should select a valid index: ";
 			}
 			else if (this->_contacts[select].isNull() == false)
-				break;
+				return;
 		}
-		if (select != -1)
-			this->_contacts[select].printFull();
+		this->_contacts[select].printFull();
 	}
 }
 
