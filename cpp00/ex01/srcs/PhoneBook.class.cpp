@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/04 11:28:12 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/04 13:44:47 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ std::string PhoneBook::_addStr(std::string str) const
 
 std::string	PhoneBook::_addPhone(std::string str) const
 {
+	if (std::cin.eof())
+		exit(1);
 	str = _removeWhitespace(str);
 	if (_isPhoneNumberValid(str) == false)
 		return (_addPhone(_addStr("Please enter a valid number")));

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 20:52:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/03/31 14:09:24 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/04 13:45:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ int	main(void)
 	PhoneBook	pb;
 	std::string	cmd;
 
-	while (!std::cin.eof())
+	while (true)
 	{
 		std::cout << "Enter a command: ";
 		std::getline(std::cin, cmd);
-		if (cmd.empty())
+		if (std::cin.eof())
+			exit(1);
+		else if (cmd.empty())
 			continue;
 		else if (!cmd.compare("SEARCH"))
 			pb.displayTable();
