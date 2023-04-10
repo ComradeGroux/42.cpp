@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:40:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/10 17:29:05 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:34:50 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ Weapon		HumanB::getWeapon(void) const
 
 void		HumanB::setWeapon(const Weapon& weapon)
 {
-	*_wp = weapon;
+	_wp = (Weapon *)&weapon;
 }
