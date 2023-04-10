@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 13:40:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/10 16:28:06 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/10 17:29:05 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	HumanB::attack(void) const
 	if (_wp != NULL)
 		std::cout << "their " << _wp->getType();
 	else
-		std::cout << "bare hands";
+		std::cout << "his bare hands";
 	std::cout << std::endl;
 }
 
