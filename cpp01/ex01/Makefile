@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 14:02:43 by vgroux            #+#    #+#              #
-#    Updated: 2023/04/04 14:11:53 by vgroux           ###   ########.fr        #
+#    Updated: 2023/04/10 12:53:46 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RED = \033[0;31m
 GREY = \033[38;5;240m
 RESET = \033[0m
 
-NAME =     zombie00
+NAME =     horde
 
 CC =         c++
 CFLAGS =     -Wall -Wextra -Werror -std=c++98 -pedantic

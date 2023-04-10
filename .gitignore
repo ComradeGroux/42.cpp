@@ -1,5 +1,7 @@
 *.o
+.excalidraw
+a.out
 megaphone
 myPhonebook
-a.out
-.excalidraw
+horde
+zombie00
