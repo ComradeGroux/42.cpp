@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 19:55:23 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/04 14:12:46 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/10 13:38:54 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Zombie
 		Zombie& operator=(const Zombie& rhs);
 		std::string	getName(void) const;
 		void		setName(std::string newName);
-		void		announce(void);
+		void		announce(void) const;
 };
 
 Zombie*	zombieHorde(int N, std::string name);

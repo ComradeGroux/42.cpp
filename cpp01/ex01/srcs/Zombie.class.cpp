@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 19:55:44 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/04 14:09:09 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/10 13:39:00 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	Zombie::setName(std::string newName)
 	this->_name = newName;
 }
 
-void	Zombie::announce(void)
+void	Zombie::announce(void) const
 {
 	std::cout << getName() << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
