@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 14:02:43 by vgroux            #+#    #+#              #
-#    Updated: 2023/04/13 18:53:06 by vgroux           ###   ########.fr        #
+#    Updated: 2023/04/17 21:52:36 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ DIR_S = srcs/
 DIR_O = objs/
 DIR_H = headers/
 
-SRCS_LST =	main.cpp
+SRCS_LST =	main.cpp \
+			Harl.cpp
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 
