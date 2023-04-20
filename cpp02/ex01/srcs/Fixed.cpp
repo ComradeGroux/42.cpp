@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:30:25 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/20 20:03:35 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/20 21:13:31 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ Fixed::Fixed(const Fixed& src)
 	return ;
 }
 
+Fixed::Fixed(const int n)
+{
+	std::cout << "Int constructor called" << std::endl;
+	_value = n << _nbBits;
+	return ;
+}
+
+Fixed::Fixed(const float n)
+{
+	std::cout << "Float constructor called" << std::endl;
+	_value = roundf(n * (1 << _nbBits));
+	return ;
+}
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
@@ -39,6 +53,12 @@ Fixed&	Fixed::operator=(const Fixed& rhs)
 	return *this;
 }
 
+std::ostream	&operator<<(std::ostream &stream, const Fixed& rhs)
+{
+	stream << rhs.toFloat();
+	return stream;
+}
+
 int	Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
@@ -48,4 +68,14 @@ int	Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int const raw)
 {
 	_value = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return (float)_value / (1 << _nbBits);
+}
+
+int		Fixed::toInt(void) const
+{
+	return (_value >> _nbBits);
 }
