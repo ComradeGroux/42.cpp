@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:30:25 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/20 20:00:30 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/20 20:03:35 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(void): _value(0)
 Fixed::Fixed(const Fixed& src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	setRawBits(src.getRawBits());
+	*this = src;
 	return ;
 }
 
@@ -41,6 +41,7 @@ Fixed&	Fixed::operator=(const Fixed& rhs)
 
 int	Fixed::getRawBits(void) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return _value;
 }
 
