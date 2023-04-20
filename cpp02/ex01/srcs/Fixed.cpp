@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:30:25 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/20 21:13:31 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/04/20 21:14:37 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ std::ostream	&operator<<(std::ostream &stream, const Fixed& rhs)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return _value;
 }
 

@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 14:02:43 by vgroux            #+#    #+#              #
-#    Updated: 2023/04/19 18:17:51 by vgroux           ###   ########.fr        #
+#    Updated: 2023/04/20 21:14:52 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RED = \033[0;31m
 GREY = \033[38;5;240m
 RESET = \033[0m
 
-NAME =     firstCanon
+NAME =     fixed
 
 CC =         c++
 CFLAGS =     -Wall -Wextra -Werror -std=c++98 -pedantic
