@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:26:47 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:53:01 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/03 16:02:16 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ ScavTrap::ScavTrap(const ScavTrap& src): ClapTrap(src)
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
+	std::cout << "ScavTrap assignement constructor called" << std::endl;
 	if (this != &src)
 	{
 		_name = src._name;
