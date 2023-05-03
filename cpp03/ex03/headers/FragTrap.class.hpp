@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:34:18 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:53:34 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/03 16:37:49 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class FragTrap: public ClapTrap
 		FragTrap& operator=(const FragTrap& src);
 		~FragTrap(void);
 
-		void	highFivesGuys(void);
+		virtual void	highFivesGuys(void);
 };
 
 #endif

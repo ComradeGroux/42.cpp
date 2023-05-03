@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:24:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 16:33:39 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/03 16:38:26 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,9 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& src)
 DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap destructor called" << std::endl;
+}
+
+void	DiamondTrap::whoAmI(void)
+{
+	std::cout << "DiamondTrap's name is " << _name << " when ClapTrap's name was " << ClapTrap::_name << std::endl;
 }

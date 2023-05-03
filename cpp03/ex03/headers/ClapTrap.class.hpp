@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:41:28 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 13:51:28 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/03 16:37:37 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ class ClapTrap
 		ClapTrap& operator=(const ClapTrap& src);
 		~ClapTrap(void);
 
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		virtual void	attack(const std::string& target);
+		virtual void	takeDamage(unsigned int amount);
+		virtual void	beRepaired(unsigned int amount);
 };
 
 #endif
