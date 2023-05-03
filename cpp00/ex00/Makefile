@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 16:34:54 by vgroux            #+#    #+#              #
-#    Updated: 2023/03/29 15:53:54 by vgroux           ###   ########.fr        #
+#    Updated: 2023/05/03 12:27:52 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RESET = \033[0m
 NAME =     megaphone
 
 CC =         c++
-CFLAGS =     -Wall -Wextra -Werror -std=c++98
+CFLAGS =     -Wall -Wextra -Werror -std=c++98 -pedantic
 RM =         rm -rf
 
 DIR_O = objs/
