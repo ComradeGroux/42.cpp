@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 16:08:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:54:18 by vgroux           ###   ########.fr       */
+/*   Created: 2023/05/01 13:27:17 by vgroux            #+#    #+#             */
+/*   Updated: 2023/05/03 15:39:19 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_CLASS_HPP
+# define SCAVTRAP_CLASS_HPP
+
 #include "ClapTrap.class.hpp"
 
-int main(void)
+class ScavTrap: public ClapTrap
 {
-	ClapTrap	a("Qqn");
-	ClapTrap	b(a);
-	ClapTrap	c = a;
+	private:
 
-	a.attack("b");
-	b.takeDamage(10);
-	c.beRepaired(3);
-	return 0;
-}
+	public:
+		ScavTrap(std::string name);
+		ScavTrap(const ScavTrap& src);
+		ScavTrap& operator=(const ScavTrap& src);
+		~ScavTrap(void);
+		
+		void	attack(const std::string& target);
+		void	guardGate(void);
+};
+
+#endif

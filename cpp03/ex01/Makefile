@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/04 14:02:43 by vgroux            #+#    #+#              #
-#    Updated: 2023/05/03 15:26:04 by vgroux           ###   ########.fr        #
+#    Updated: 2023/05/03 15:56:06 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ DIR_O = objs/
 DIR_H = headers/
 
 SRCS_LST =	main.cpp \
-			ClapTrap.cpp \
-			ScavTrap.cpp
+			ClapTrap.class.cpp \
+			ScavTrap.class.cpp
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 

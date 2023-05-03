@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/05/03 15:54:24 by vgroux           ###   ########.fr        #
+#    Created: 2023/04/04 14:02:43 by vgroux            #+#    #+#              #
+#    Updated: 2023/05/03 15:53:23 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RED = \033[0;31m
 GREY = \033[38;5;240m
 RESET = \033[0m
 
-NAME =     ClapTrap
+NAME =     FragTrap
 
 CC =         c++
 CFLAGS =     -Wall -Wextra -Werror -std=c++98 -pedantic
@@ -26,7 +26,9 @@ DIR_O = objs/
 DIR_H = headers/
 
 SRCS_LST =	main.cpp \
-			ClapTrap.class.cpp
+			ClapTrap.class.cpp \
+			ScavTrap.class.cpp \
+			FragTrap.class.cpp
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 

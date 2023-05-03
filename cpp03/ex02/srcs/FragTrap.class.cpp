@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.class.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/23 16:08:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:54:18 by vgroux           ###   ########.fr       */
+/*   Created: 2023/05/03 15:31:00 by vgroux            #+#    #+#             */
+/*   Updated: 2023/05/03 15:53:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.class.hpp"
+#include "FragTrap.class.hpp"
 
-int main(void)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
-	ClapTrap	a("Qqn");
-	ClapTrap	b(a);
-	ClapTrap	c = a;
+	std::cout << "FragTrap default constructor called" << std::endl;
+	return ;
+}
 
-	a.attack("b");
-	b.takeDamage(10);
-	c.beRepaired(3);
-	return 0;
+FragTrap::FragTrap(const FragTrap& src): ClapTrap(src)
+{
+	_hp = 100;
+	_ep = 100;
+	_ad = 30;
+	return ;
 }

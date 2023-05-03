@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.class.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:26:47 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:18:25 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/03 15:53:01 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "ScavTrap.class.hpp"
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name) 
 {
