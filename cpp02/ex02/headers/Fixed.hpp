@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:25:57 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/20 22:14:38 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/03 12:04:14 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ class Fixed
 		Fixed	operator++(int);
 		Fixed&	operator--(void);
 		Fixed	operator--(int);
-
-		friend std::ostream	&operator<<(std::ostream &ostr, const Fixed& rhs);
-
 };
+
+std::ostream	&operator<<(std::ostream &ostr, const Fixed& rhs);
 
 #endif
