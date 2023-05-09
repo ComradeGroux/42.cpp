@@ -6,16 +6,15 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:24:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 16:36:31 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/09 17:16:36 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.class.hpp"
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
-	ClapTrap::setName(name + "_clap_name");
 	_name = name;
 	_hp = FragTrap::_hp;
 	_ep = ScavTrap::_ep;

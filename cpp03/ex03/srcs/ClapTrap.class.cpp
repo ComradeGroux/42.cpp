@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:49:05 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 16:12:06 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/09 17:19:42 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap& src)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 {
+	std::cout << "ClapTrap assignement constructor called" << std::endl;
 	_name = src._name;
 	_hp = src._hp;
 	_ep = src._ep;
