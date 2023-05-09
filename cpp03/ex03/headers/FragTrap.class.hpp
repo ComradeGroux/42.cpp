@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:34:18 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 16:37:49 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:54:07 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.class.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: public virtual ClapTrap
 {
 	private:
 
@@ -25,7 +25,7 @@ class FragTrap: public ClapTrap
 		FragTrap& operator=(const FragTrap& src);
 		~FragTrap(void);
 
-		virtual void	highFivesGuys(void);
+		void	highFivesGuys(void);
 };
 
 #endif

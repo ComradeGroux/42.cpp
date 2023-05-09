@@ -6,13 +6,14 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 16:08:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 16:09:58 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/09 16:35:32 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.class.hpp"
 #include "ScavTrap.class.hpp"
 #include "FragTrap.class.hpp"
+#include "DiamondTrap.class.hpp"
 
 int main(void)
 {
@@ -27,12 +28,16 @@ int main(void)
 	ScavTrap	z = x;
 	
 	std::cout << std::endl << "---------------\tCreation FragTrap" << std::endl;
-	FragTrap	m("FRAG_");
+	FragTrap	m("FRAG_ola");
 	FragTrap	n(m);
 	FragTrap	o = m;
 
+	std::cout << std::endl << "---------------\tCreation DiamondTrap" << std::endl;
+	DiamondTrap	q("DIAM_pepito");
+	DiamondTrap	w(q);
+	DiamondTrap	e = w;
 
-	std::cout << std::endl << "---------------\tOperation" << std::endl;
+	std::cout << std::endl << std::endl << "---------------\tOperation" << std::endl;
 	a.attack("SOMEONE");
 	b.takeDamage(10);
 	c.beRepaired(3);
@@ -47,6 +52,9 @@ int main(void)
 	n.takeDamage(4);
 	o.highFivesGuys();
 	// o.guardGate();
+	std::cout << std::endl;
+	q.attack("SOMEONE");
+	q.whoAmI();
 	std::cout << std::endl << "---------------\tDestruction" << std::endl;
 	return 0;
 }

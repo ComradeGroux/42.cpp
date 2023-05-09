@@ -6,13 +6,13 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:26:47 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 16:02:16 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/09 16:26:42 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.class.hpp"
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name) 
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 	_hp = 100;
@@ -24,6 +24,9 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 ScavTrap::ScavTrap(const ScavTrap& src): ClapTrap(src)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
+	_hp = src._hp;
+	_ep = src._ep;
+	_ad = src._ad;
 	return ;
 }
 

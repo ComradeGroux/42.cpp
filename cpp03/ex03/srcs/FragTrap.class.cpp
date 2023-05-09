@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:31:00 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 16:03:25 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/05/09 16:27:13 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	std::cout << "FragTrap default constructor called" << std::endl;
+	_hp = 100;
+	_ep = 100;
+	_ad = 30;
 	return ;
 }
 
 FragTrap::FragTrap(const FragTrap& src): ClapTrap(src)
 {
 	std::cout << "FragTrap copy constructor called" << std::endl;
-	_hp = 100;
-	_ep = 100;
-	_ad = 30;
+	_hp = src._hp;
+	_ep = src._ep;
+	_ad = src._ad;
 	return ;
 }
 
