@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 19:50:51 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/04 13:44:47 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/07 16:02:41 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,7 @@ void PhoneBook::displayTable(void) const
 			std::cout << "|" << std::endl << "|-------------------------------------------|" << std::endl;
 		}
 		std::cout << "Select an index to display more information (-1 to exit this menu): ";
+		std::cout << numberContacts() << std::endl;
 		while (true)
 		{
 			while (!(std::cin >> select))
@@ -162,7 +163,7 @@ void PhoneBook::displayTable(void) const
 				std::cout << "You should select a valid index: ";
 			}
 			else if (this->_contacts[select].isNull() == false)
-				return;
+				break;
 		}
 		this->_contacts[select].printFull();
 	}
