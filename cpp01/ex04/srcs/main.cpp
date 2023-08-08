@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 17:37:05 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 12:32:53 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/08 18:12:21 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ std::string	strReplace(std::string line, std::string const s1, std::string const
 	{
 		out.append(line, start, end - start);
 		out.append(s2);
-		start = end - s1.size();
+		start = end - s2.length();
 		end = line.find(s1, start);
 	}
 	out.append(s2, start);
@@ -38,7 +38,7 @@ int	main(int argc, char** argv)
 	if (argc != 4)
 	{
 		std::cerr << "Error: invalid arguments" << std::endl;
-		std::cerr << "Usage: <program> <filename> <to search> <to replace>" << std::endl;
+		std::cerr << "Usage: ./sed <filename> <to search> <to replace>" << std::endl;
 		return (1);
 	}
 	std::ifstream	baseFile;
@@ -57,20 +57,22 @@ int	main(int argc, char** argv)
 		newFile.open(line.append(".replace").c_str(), std::fstream::in | std::fstream::trunc);
 		if (newFile.is_open())
 		{
-			while (getline(baseFile, line))
+			while (std::getline(baseFile, line))
+			{
 				newFile << strReplace(line, s1, s2) << std::endl;
+			}
 			newFile.close();
 		}
 		else
 		{
-			std::cerr << "The file called <" << argv[1] << ".replace doesn't exist." << std::endl;
+			std::cerr << "The file called <" << argv[1] << ".replace> can't be opened." << std::endl;
 			return (1);
 		}
 		baseFile.close();
 	}
 	else
 	{
-		std::cerr << "The file called <" << argv[1] << " doesn't exist." << std::endl;
+		std::cerr << "The file called <" << argv[1] << "> doesn't exist." << std::endl;
 		return (1);
 	}
 	return (0);
