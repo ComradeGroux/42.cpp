@@ -5,75 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/10 17:37:05 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/08 18:12:21 by vgroux           ###   ########.fr       */
+/*   Created: 2023/08/09 18:14:09 by vgroux            #+#    #+#             */
+/*   Updated: 2023/08/09 18:27:55 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
+#include <string>
 #include <fstream>
 
-std::string	strReplace(std::string line, std::string const s1, std::string const s2)
-{
-	std::string	out;
-	size_t		start;
-	size_t		end;
-
-	start = 0;
-	end = line.find(s1);
-	while (end != std::string::npos)
-	{
-		out.append(line, start, end - start);
-		out.append(s2);
-		start = end - s2.length();
-		end = line.find(s1, start);
-	}
-	out.append(s2, start);
-	return (out);
-}
-
-int	main(int argc, char** argv)
-{
-	if (argc != 4)
-	{
-		std::cerr << "Error: invalid arguments" << std::endl;
-		std::cerr << "Usage: ./sed <filename> <to search> <to replace>" << std::endl;
+int	strReplace(std::string line, char **av){
+	
+	int start;
+	std::ofstream outfile;
+	outfile.open((std::string (av[1]) + ".replace").c_str());
+	if (outfile.fail())
 		return (1);
-	}
-	std::ifstream	baseFile;
-	std::ofstream	newFile;
-	std::string		s1 = argv[2];
-	std::string		s2 = argv[3];
-	std::string		line = argv[1];
-	if (s1.empty() || s2.empty() || line.empty())
+	for (int i = 0; i < (int)line.size(); i++)
 	{
-		std::cerr << "Error: empty arguments" << std::endl;
-		return (1);
-	}
-	baseFile.open(line.c_str(), std::fstream::out);
-	if (baseFile.is_open())
-	{
-		newFile.open(line.append(".replace").c_str(), std::fstream::in | std::fstream::trunc);
-		if (newFile.is_open())
+		start = line.find(av[2], i);
+		if (start != -1 && start == i)
 		{
-			while (std::getline(baseFile, line))
-			{
-				newFile << strReplace(line, s1, s2) << std::endl;
-			}
-			newFile.close();
+			outfile << av[3];
+			i += std::string(av[2]).size() - 1;
 		}
 		else
-		{
-			std::cerr << "The file called <" << argv[1] << ".replace> can't be opened." << std::endl;
-			return (1);
-		}
-		baseFile.close();
+			outfile << line[i];
 	}
-	else
+	outfile.close();
+	return (0);
+}
+
+int main(int ac, char **av){
+	if (ac != 4)
 	{
-		std::cerr << "The file called <" << argv[1] << "> doesn't exist." << std::endl;
+		std::cout << "Invalid arguments, please enter filename, string to find and what you want to replace it with" << std::endl;
+		return (0);
+	}
+	char c;
+	std::ifstream infile;
+	std::string str;
+
+	infile.open(av[1]);
+	if (infile.fail())
+	{
+		std::cout << av[1] << ": No such file or you don't have the permission to read it" << std::endl;
 		return (1);
 	}
-	return (0);
+	while (!infile.eof() && infile >> std::noskipws >> c)
+		str += c;
+	infile.close();
+	return (strReplace(str, av));
 }
