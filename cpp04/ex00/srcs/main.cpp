@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:23:41 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 17:38:37 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/11 15:51:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 	meta->makeSound();
 
 	
-	std::cout << std::endl << "Wrong classes" << std::endl;
+	std::cout << std::endl << "Wrong classes:" << std::endl;
 	const WrongAnimal* x = new WrongCat();
 	const WrongAnimal* y = new WrongDog();
 	const WrongAnimal* wrongmeta = new WrongAnimal();
@@ -43,5 +43,5 @@ int	main(void)
 	y->makeSound();
 	wrongmeta->makeSound();
 
-	return 0;
+	return (0);
 }

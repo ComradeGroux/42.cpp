@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:41:16 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 17:43:10 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/11 15:47:34 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Brain
 	public:
 		Brain(void);
 		Brain(const Brain& src);
-		Brain& operator=(cosnt Brain& src);
+		Brain& operator=(const Brain& src);
 		~Brain(void);
 }
 
