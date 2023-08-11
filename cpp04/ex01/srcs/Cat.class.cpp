@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:13:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 17:25:51 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/11 17:42:33 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Cat::Cat(void): Animal()
 {
 	std::cout << "Default Cat's constructor called" << std::endl;
 	type = "Cat";
+	brain = new Brain();
 	return ;
 }
 
@@ -39,6 +40,7 @@ Cat& Cat::operator=(const Cat& src)
 Cat::~Cat(void)
 {
 	std::cout << "Default Cat's destructor called" << std::endl;
+	delete brain;
 }
 
 void	Cat::makeSound(void) const
