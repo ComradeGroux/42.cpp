@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:00:22 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/11 17:41:45 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/14 16:52:21 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Animal
 		Animal& operator=(const Animal& src);
 		virtual ~Animal(void);
 
-		virtual void	makeSound(void) const;
 		std::string		getType(void) const;
+		virtual void	makeSound(void) const;
 };
 
 #endif
