@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 18:14:09 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/09 18:27:55 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/14 15:44:36 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int main(int ac, char **av){
 		std::cout << "Invalid arguments, please enter filename, string to find and what you want to replace it with" << std::endl;
 		return (0);
 	}
-	char c;
-	std::ifstream infile;
-	std::string str;
+	char 			c;
+	std::ifstream	infile;
+	std::string		str;
 
 	infile.open(av[1]);
 	if (infile.fail())
