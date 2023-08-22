@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 21:30:25 by vgroux            #+#    #+#             */
-/*   Updated: 2023/04/20 20:03:35 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/22 19:47:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(void): _value(0)
 Fixed::Fixed(const Fixed& src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	*this = src; // Utilise l'assignement operator
 	return ;
 }
 
