@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:13:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/14 17:50:08 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/22 18:23:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ Dog& Dog::operator=(const Dog& src)
 	if (this != &src)
 	{
 		type = src.type;
+		delete brain;
 		brain = new Brain();
 		for (int i = 0; i < 100; i++)
 			brain->ideas[i] = src.brain->ideas[i];
