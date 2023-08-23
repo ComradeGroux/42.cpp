@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:23:41 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/23 15:11:44 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/23 15:12:56 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 int	main(void)
 {
+	// Animal test = Animal();
+	// (void)test;
+
 	Animal*	tab_ani[100];
 	for (int i = 0; i < 50; i++)
 		tab_ani[i] = new Dog();

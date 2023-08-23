@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 17:23:41 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/23 15:11:44 by vgroux           ###   ########.fr       */
+/*   Created: 2023/05/09 17:11:41 by vgroux            #+#    #+#             */
+/*   Updated: 2023/08/14 15:57:20 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.class.hpp"
-#include "Dog.class.hpp"
+#ifndef CAT_CLASS_HPP
+# define CAT_CLASS_HPP
 
-int	main(void)
+#include "Animal.class.hpp"
+#include "Brain.class.hpp"
+
+class Cat: virtual public Animal
 {
-	Animal*	tab_ani[100];
-	for (int i = 0; i < 50; i++)
-		tab_ani[i] = new Dog();
-	for (int i = 50; i < 100; i++)
-		tab_ani[i] = new Cat();
-	
+	private:
+		Brain*	brain;
+		
+	public:
+		Cat(void);
+		Cat(const Cat& src);
+		Cat& operator=(const Cat& src);
+		~Cat(void);
 
-	for (int i = 0; i < 100; i++)
-		delete tab_ani[i];
-	return 0;
-}
+		void	makeSound(void) const;
+};
+
+#endif
