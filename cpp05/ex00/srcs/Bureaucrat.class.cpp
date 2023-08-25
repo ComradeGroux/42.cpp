@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:48:04 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/24 15:25:22 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/25 14:15:33 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,10 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "GradeTooLowException";
+}
+
+std::ostream &operator<<(std::ostream &ostr, const Bureaucrat &b)
+{
+	ostr << b.getName() << ", Bureaucrat grade " << b.getGrade();
+	return (ostr);
 }
