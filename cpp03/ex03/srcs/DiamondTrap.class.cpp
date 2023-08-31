@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:24:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 17:16:36 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/31 19:07:05 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavT
 {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 	_name = name;
-	_hp = FragTrap::_hp;
-	_ep = ScavTrap::_ep;
-	_ad = FragTrap::_ad;
+	_hp = FragTrap::_defaultHP;
+	_ep = ScavTrap::_defaultEP;
+	_ad = FragTrap::_defaultAD;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& src): ClapTrap(src._name + "_clap_name"), ScavTrap(src._name), FragTrap(src._name)
@@ -53,7 +53,12 @@ void	DiamondTrap::whoAmI(void)
 	std::cout << "DiamondTrap's name is " << _name << " when ClapTrap's name was " << ClapTrap::_name << std::endl;
 }
 
-void	DiamondTrap::attack(const std::string& target)
+void	DiamondTrap::getData(void)
 {
-	ScavTrap::attack(target);
+	std::cout << "hp: " << _hp << "\tep: " << _ep << "\tad: " << _ad << std::endl;
 }
+
+// void	DiamondTrap::attack(const std::string& target)
+// {
+// 	ScavTrap::attack(target);
+// }

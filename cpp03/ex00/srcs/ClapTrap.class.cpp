@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:49:05 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:54:12 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/31 18:27:54 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		_ep--;
 	}
 	else
-		std::cout << "ClapTrap " << _name << " doesn't have enough energy or he has too many hit points" << std::endl;
+		std::cout << "ClapTrap " << _name << " doesn't have enough energy or he died" << std::endl;
 }

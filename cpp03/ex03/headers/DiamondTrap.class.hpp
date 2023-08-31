@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:11:43 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 16:34:48 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/31 18:56:15 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		DiamondTrap& operator=(const DiamondTrap& src);
 		~DiamondTrap(void);
 		
-		
+		void	getData(void);
 		void	whoAmI(void);
-		// using	ScavTrap::attack;
-		void	attack(const std::string& target);
+		using	ScavTrap::attack;
+		// void	attack(const std::string& target);
 };
 
 #endif

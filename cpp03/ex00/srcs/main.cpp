@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 16:08:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:54:18 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/31 18:26:48 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int main(void)
 	ClapTrap	c = a;
 
 	a.attack("b");
-	b.takeDamage(10);
+	b.takeDamage(6);
+	b.takeDamage(20);
 	c.beRepaired(3);
 	return 0;
 }
