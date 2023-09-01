@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:41:28 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:56:30 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/01 16:24:32 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@
 class ClapTrap
 {
 	private:
-		std::string	_name;
-		int			_hp;
-		int			_ep;
-		int			_ad;
+		ClapTrap(void);
+
+		std::string			_name;
+		int					_hp;
+		int					_ep;
+		int					_ad;
+		static const int	_defaultHP = 10;
 
 	public:
 		ClapTrap(std::string name);

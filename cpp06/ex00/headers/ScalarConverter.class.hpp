@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:51:45 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/27 19:56:31 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/01 15:41:19 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <limits>
 # include <iostream>
 # include <string>
+# include <cctype>
 
 class ScalarConverter
 {
