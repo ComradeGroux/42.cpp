@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.class.hpp                                 :+:      :+:    :+:   */
+/*   ScalarConverter.class.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 15:34:18 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/31 19:07:23 by vgroux           ###   ########.fr       */
+/*   Created: 2023/08/27 17:51:45 by vgroux            #+#    #+#             */
+/*   Updated: 2023/09/01 15:41:19 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_CLASS_HPP
-# define FRAGTRAP_CLASS_HPP
+#ifndef SCALARCONVERTER_CLASS_HPP
+# define SCALARCONVERTER_CLASS_HPP
 
-#include "ClapTrap.class.hpp"
+# include <limits>
+# include <iostream>
+# include <string>
+# include <cctype>
 
-class FragTrap: public virtual ClapTrap
+class ScalarConverter
 {
-	protected:
-		static const int	_defaultHP = 100;
-		static const int	_defaultEP = 100;
-		static const int	_defaultAD = 30;
+	private:
+		ScalarConverter(void);
+		bool	_isChar(std::string& input) const;
+		bool	_isInt(std::string& input) const;
+		bool	_isFloat(std::string& input) const;
+		bool	_isDouble(std::string& input) const;
 
 	public:
-		FragTrap(std::string name);
-		FragTrap(const FragTrap& src);
-		FragTrap& operator=(const FragTrap& src);
-		~FragTrap(void);
-
-		void	highFivesGuys(void);
+		static void convert(std::string str);
 };
 
 #endif

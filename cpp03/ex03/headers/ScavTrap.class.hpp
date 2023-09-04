@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:27:17 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 17:01:43 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/08/31 19:06:42 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 class ScavTrap: public virtual ClapTrap
 {
 	protected:
+		static const int	_defaultHP = 100;
+		static const int	_defaultEP = 50;
+		static const int	_defaultAD = 20;
 
 	public:
 		ScavTrap(std::string name);
