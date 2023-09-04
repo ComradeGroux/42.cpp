@@ -6,13 +6,13 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:49:05 by vgroux            #+#    #+#             */
-/*   Updated: 2023/09/01 16:42:31 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/04 12:25:47 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.class.hpp"
 
-ClapTrap::ClapTrap(void): _name("Default"), _hp(10), _ep(10), _ad(0)
+ClapTrap::ClapTrap(void): _name("Default"), _hp(_defaultHP), _ep(10), _ad(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -56,7 +56,7 @@ void	ClapTrap::attack(const std::string& target)
 		std::cout << "ClapTrap " << _name << " can't attack because he is dead" << std::endl;
 	else
 	{
-		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _ad << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _ad << " points of damage !" << std::endl;
 		_ep--;
 	}
 }
@@ -78,7 +78,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_ep < 1)
-		std::cout << "ClapTrap " << _name << " can't be repaired because he doesn't have enough enregy" << std::endl;
+		std::cout << "ClapTrap " << _name << " can't be repaired because he doesn't have enough energy" << std::endl;
 	else if (_hp < 1)
 		std::cout << "ClapTrap " << _name << " can't be repaired because he is already dead" << std::endl;
 	else if (_hp < _defaultHP)
