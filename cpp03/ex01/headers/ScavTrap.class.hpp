@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:27:17 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:55:11 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/04 12:31:45 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class ScavTrap: public ClapTrap
 {
 	private:
-
+		ScavTrap(void);
+		
 	public:
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap& src);

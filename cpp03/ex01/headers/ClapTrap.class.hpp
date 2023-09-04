@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:41:28 by vgroux            #+#    #+#             */
-/*   Updated: 2023/09/01 16:36:23 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/04 12:29:14 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		ClapTrap(void);
 
 		std::string			_name;

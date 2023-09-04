@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:49:05 by vgroux            #+#    #+#             */
-/*   Updated: 2023/09/04 12:25:47 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/04 12:33:43 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 ClapTrap::ClapTrap(void): _name("Default"), _hp(_defaultHP), _ep(10), _ad(0)
 {
 	std::cout << "Default constructor called" << std::endl;
+	return ;
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _ep(10), _ad(0)
