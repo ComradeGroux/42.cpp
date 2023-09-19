@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:34:18 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/31 19:07:23 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/19 14:54:46 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 class FragTrap: public virtual ClapTrap
 {
 	protected:
+		FragTrap(void);
+
 		static const int	_defaultHP = 100;
 		static const int	_defaultEP = 100;
 		static const int	_defaultAD = 30;

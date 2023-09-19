@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:24:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/31 19:07:05 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/19 14:57:46 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,6 @@ DiamondTrap::~DiamondTrap(void)
 void	DiamondTrap::whoAmI(void)
 {
 	std::cout << "DiamondTrap's name is " << _name << " when ClapTrap's name was " << ClapTrap::_name << std::endl;
-}
-
-void	DiamondTrap::getData(void)
-{
-	std::cout << "hp: " << _hp << "\tep: " << _ep << "\tad: " << _ad << std::endl;
 }
 
 // void	DiamondTrap::attack(const std::string& target)

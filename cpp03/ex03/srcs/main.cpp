@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 16:08:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/31 18:56:05 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/19 14:56:13 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int main(void)
 	o.highFivesGuys();
 	// o.guardGate();
 	std::cout << std::endl << "---------------\tOperation DiamondTrap" << std::endl;;
-	q.getData();
 	q.attack("SOMEONE");
 	q.whoAmI();
 	q.highFivesGuys();

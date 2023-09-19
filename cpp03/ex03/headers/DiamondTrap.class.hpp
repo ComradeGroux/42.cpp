@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:11:43 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/31 18:56:15 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/19 14:54:49 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 class DiamondTrap: public ScavTrap, public FragTrap
 {
 	private:
+		DiamondTrap(void);
+
 		std::string	_name;
 
 	public:
