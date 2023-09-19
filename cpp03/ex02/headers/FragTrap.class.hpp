@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:34:18 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/03 15:53:34 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/09/19 14:32:22 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class FragTrap: public ClapTrap
 {
 	private:
-
+		FragTrap(void);
+		
 	public:
 		FragTrap(std::string name);
 		FragTrap(const FragTrap& src);
