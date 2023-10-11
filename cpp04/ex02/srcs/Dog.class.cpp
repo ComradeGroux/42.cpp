@@ -6,13 +6,13 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:13:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/22 18:23:09 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 16:58:34 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.class.hpp"
 
-Dog::Dog(void): Animal()
+Dog::Dog(void): AAnimal()
 {
 	std::cout << "Default Dog's constructor called" << std::endl;
 	type = "Dog";
@@ -20,7 +20,7 @@ Dog::Dog(void): Animal()
 	return ;
 }
 
-Dog::Dog(const Dog& src): Animal()
+Dog::Dog(const Dog& src): AAnimal()
 {
 	std::cout << "Copy Dog's constructor called" << std::endl;
 	type = src.type;

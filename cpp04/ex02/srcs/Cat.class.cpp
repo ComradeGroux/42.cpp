@@ -6,13 +6,13 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:13:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/22 18:23:15 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 16:58:28 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.class.hpp"
 
-Cat::Cat(void): Animal()
+Cat::Cat(void): AAnimal()
 {
 	std::cout << "Default Cat's constructor called" << std::endl;
 	type = "Cat";
@@ -20,7 +20,7 @@ Cat::Cat(void): Animal()
 	return ;
 }
 
-Cat::Cat(const Cat& src): Animal()
+Cat::Cat(const Cat& src): AAnimal()
 {
 	std::cout << "Copy Cat's constructor called" << std::endl;
 	type = src.type;

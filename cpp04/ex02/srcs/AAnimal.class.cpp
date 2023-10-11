@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:04:11 by vgroux            #+#    #+#             */
-/*   Updated: 2023/10/11 13:58:21 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 16:58:11 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ AAnimal::AAnimal(void)
 	return ;
 }
 
-AAnimal::AAnimal(const Animal& src)
+AAnimal::AAnimal(const AAnimal& src)
 {
 	std::cout << "Copy AAnimal's constructor called" << std::endl;
 	type = src.type;
@@ -46,7 +46,7 @@ std::string	AAnimal::getType(void) const
 	return type;
 }
 
-void	AAnimal::makeSound(void) const = 0
+void	AAnimal::makeSound(void) const
 {
 	std::cout << "Default AAnimal's sound" << std::endl;
 }
