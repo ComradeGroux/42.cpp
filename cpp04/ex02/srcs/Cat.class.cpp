@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:13:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/10/11 16:58:28 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:17:19 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,9 @@ Cat::~Cat(void)
 void	Cat::makeSound(void) const
 {
 	std::cout << "Meowwww" << std::endl;
+}
+
+std::string	Cat::getIdea(int i) const
+{
+	return this->brain->getIdea(i);
 }

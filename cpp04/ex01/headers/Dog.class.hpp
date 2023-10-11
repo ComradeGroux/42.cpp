@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:21:14 by vgroux            #+#    #+#             */
-/*   Updated: 2023/10/10 16:28:04 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:13:48 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class Dog: virtual public Animal
 		Dog& operator=(const Dog& src);
 		~Dog(void);
 
-		void	makeSound(void) const;
+		void		makeSound(void) const;
+		std::string	getIdea(int i) const;
 };
 
 #endif

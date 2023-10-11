@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:13:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/22 18:23:09 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:13:35 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,9 @@ Dog::~Dog(void)
 void	Dog::makeSound(void) const
 {
 	std::cout << "Bark bark bark" << std::endl;
+}
+
+std::string	Dog::getIdea(int i) const
+{
+	return this->brain->getIdea(i);
 }

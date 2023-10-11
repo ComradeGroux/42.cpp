@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:42:24 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/11 17:39:09 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 17:19:41 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ std::string Brain::getIdea(int i) const
 {
 	if (i >= 100)
 		i = 99;
+	else if (i < 0)
+		i = 0;
 	return ideas[i];
 }
