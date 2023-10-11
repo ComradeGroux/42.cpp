@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/08/23 15:07:01 by vgroux           ###   ########.fr        #
+#    Updated: 2023/10/11 13:56:38 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ DIR_O = objs/
 DIR_H = headers/
 
 SRCS_LST =	main.cpp \
-			Animal.class.cpp \
+			AAnimal.class.cpp \
 			Cat.class.cpp \
 			Dog.class.cpp \
 			Brain.class.cpp \

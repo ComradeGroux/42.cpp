@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:21:14 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/14 16:51:51 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:28:04 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Dog: virtual public Animal
 {
 	private:
-		Brain* brain;
+		Brain*	brain;
 
 	public:
 		Dog(void);

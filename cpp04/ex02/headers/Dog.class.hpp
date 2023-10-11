@@ -6,20 +6,20 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:21:14 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/14 16:51:51 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/11 13:54:12 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_CLASS_HPP
 # define DOG_CLASS_HPP
 
-#include "Animal.class.hpp"
+#include "AAnimal.class.hpp"
 #include "Brain.class.hpp"
 
-class Dog: virtual public Animal
+class Dog: virtual public AAnimal
 {
 	private:
-		Brain* brain;
+		Brain*	brain;
 
 	public:
 		Dog(void);
@@ -27,7 +27,8 @@ class Dog: virtual public Animal
 		Dog& operator=(const Dog& src);
 		~Dog(void);
 
-		void	makeSound(void) const;
+		void		makeSound(void) const;
+		std::string	getIdea(int i) const;
 };
 
 #endif

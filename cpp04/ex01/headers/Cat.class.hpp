@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:11:41 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/14 15:57:20 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:40:45 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class Cat: virtual public Animal
 		Cat& operator=(const Cat& src);
 		~Cat(void);
 
-		void	makeSound(void) const;
+		std::string	getIdea(int i) const;
+		void		makeSound(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/05/09 17:35:42 by vgroux           ###   ########.fr        #
+#    Updated: 2023/10/10 16:24:58 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRCS_LST =	main.cpp \
 			Dog.class.cpp \
 			WrongAnimal.class.cpp \
 			WrongCat.class.cpp \
-			WrongDog.class.cpp \
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 

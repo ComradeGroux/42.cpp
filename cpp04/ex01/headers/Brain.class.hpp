@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:41:16 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/14 15:51:17 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:35:51 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ class Brain
 	private:
 
 	public:
-		std::string ideas[100];
 		Brain(void);
 		Brain(const Brain& src);
 		Brain& operator=(const Brain& src);
 		~Brain(void);
 
+		std::string ideas[100];
+		
 		std::string	getIdea(int i) const;
 };
 

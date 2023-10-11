@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongDog.class.hpp                                 :+:      :+:    :+:   */
+/*   AAnimal.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 17:31:55 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 17:32:23 by vgroux           ###   ########.fr       */
+/*   Created: 2023/05/09 17:00:22 by vgroux            #+#    #+#             */
+/*   Updated: 2023/10/11 13:57:19 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGDOG_CLASS_HPP
-# define WRONGDOG_CLASS_HPP
+#ifndef AANIMAL_CLASS_HPP
+# define AANIMAL_CLASS_HPP
 
-#include "WrongAnimal.class.hpp"
+#include <iostream>
+#include <string>
 
-class WrongDog: virtual public WrongAnimal
+// Classe abstrait: Classe avec une methode/fonction() const = 0;
+class AAnimal
 {
-	private:
+	protected:
+		std::string	type;
 
 	public:
-		WrongDog(void);
-		WrongDog(const WrongDog& src);
-		WrongDog& operator=(const WrongDog& src);
-		~WrongDog(void);
+		AAnimal(void);
+		AAnimal(const AAnimal& src);
+		AAnimal& operator=(const AAnimal& src);
+		virtual ~AAnimal(void);
 
-		void	makeSound(void) const;
+		std::string		getType(void) const;
+		virtual void	makeSound(void) const = 0;
 };
 
 #endif

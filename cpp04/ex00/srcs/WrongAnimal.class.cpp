@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 17:34:04 by vgroux            #+#    #+#             */
-/*   Updated: 2023/05/09 17:34:16 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/10/10 16:23:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 WrongAnimal::WrongAnimal(void)
 {
 	std::cout << "Default WrongAnimal's constructor called" << std::endl;
-	type = "Default";
+	type = "Default WrongAnimal";
 	return ;
 }
 
