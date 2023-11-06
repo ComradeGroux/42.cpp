@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:48:04 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/25 14:15:33 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/11/06 18:58:56 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs)
 int	Bureaucrat::_validateGrade(const int grade)
 {
 	if (grade < 1)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	return (grade);
