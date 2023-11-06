@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:02:27 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/25 16:41:54 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/11/06 19:24:39 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,16 @@ Form::Form(std::string name, int gradeToSign, int gradeToExe):
 			_gradeExe(_validateGrade(gradeToExe))
 {
 	std::cout << "Default Form's constructor called" << std::endl;
-	this->_signed = false;
+	_signed = false;
 }
 
 Form::Form(const Form& src):
 			_name(src.getName()),
-			_gradeExe(_validateGrade(src.getGradeToExecute())),
-			_gradeSign(_validateGrade(src.getGradeToSign()))
+			_gradeSign(_validateGrade(src.getGradeToSign())),
+			_gradeExe(_validateGrade(src.getGradeToExecute()))
 {
 	std::cout << "Copy Form's constructor called" << std::endl;
-	_signed = false;
-	_gradeExe = src.getGradeToExecute();
-	_gradeSign = src.getGradeToSign();
+	_signed = src.isSigned();
 }
 
 Form::~Form(void)
@@ -50,10 +48,10 @@ Form& Form::operator=(const Form& rhs)
 
 int	Form::_validateGrade(int n)
 {
-	if (n > 150)
-		throw Form::GradeTooLowException();
-	else if (n < 1)
+	if (n < 1)
 		throw Form::GradeTooHighException();
+	else if (n > 150)
+		throw Form::GradeTooLowException();
 	else
 		return (n);
 }
@@ -80,7 +78,7 @@ int Form::getGradeToExecute(void) const
 
 void Form::beSigned(const Bureaucrat& b)
 {
-	if (b.getGrade() < _gradeSign)
+	if (b.getGrade() <= _gradeSign)
 		_signed = true;
 	else
 		throw Form::GradeTooLowException();

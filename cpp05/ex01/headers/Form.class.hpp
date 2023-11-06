@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:20:58 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/25 16:38:34 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/11/06 19:21:21 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include "Bureaucrat.class.hpp"
 
+class Bureaucrat;
 class Form
 {
 	private:
@@ -36,7 +37,7 @@ class Form
 		int					getGradeToSign(void) const;
 		int					getGradeToExecute(void) const;
 
-		void				beSigned(const Bureaucrat& b);
+		void				beSigned(const Bureaucrat &b);
 
 		class GradeTooHighException: public std::exception
 		{

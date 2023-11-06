@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:48:04 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/25 15:52:14 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/11/06 19:14:01 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,21 @@ Bureaucrat::Bureaucrat(const Bureaucrat& src): _name(src._name), _grade(_validat
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Bureaucrat's destructor called" << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs)
 {
-	(void)rhs;
-	std::cout << "Can't copy a Bureaucrat per assignement" << std::endl;
+	std::cout << "Assignement Bureaucrat's constructor called" << std::endl;
+	if (this != &rhs)
+		_grade = rhs.getGrade();
 	return *this;
 }
 
 int	Bureaucrat::_validateGrade(const int grade)
 {
 	if (grade < 1)
-		throw Bureaucrat::GradeTooLowException();
+		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 	return (grade);
@@ -84,7 +85,7 @@ void Bureaucrat::signForm(Form &f) const
 	try
 	{
 		f.beSigned(*this);
-		std::cout << _name << " signed " << f.getName() << std::endl;
+		std::cout << _name << " signed Form \'" << f.getName() << "\'" << std::endl;
 	}
 	catch (const std::exception &e)
 	{

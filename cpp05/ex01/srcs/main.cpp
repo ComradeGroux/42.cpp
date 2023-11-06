@@ -6,10 +6,11 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 15:26:00 by vgroux            #+#    #+#             */
-/*   Updated: 2023/08/25 15:59:54 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/11/06 19:19:20 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Form.class.hpp"
 #include "Bureaucrat.class.hpp"
 
 int	main(void)

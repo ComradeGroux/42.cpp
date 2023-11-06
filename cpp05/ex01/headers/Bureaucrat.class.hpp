@@ -1,8 +1,10 @@
 #ifndef BUREAUCRAT_CLASS_HPP
 # define BUREAUCRAT_CLASS_HPP
 
-# include <iostream>
 # include "Form.class.hpp"
+# include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -21,7 +23,7 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		promote(void);
 		void		demote(void);
-		void		signForm(Form& f) const;
+		void		signForm(Form &f) const;
 
 		class GradeTooHighException: public std::exception
 		{
