@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:02:27 by vgroux            #+#    #+#             */
-/*   Updated: 2023/11/06 19:24:39 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/04 17:35:04 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &stream, const Form& rhs)
 {
-	stream << rhs.getName() << "is a ";
+	stream << rhs.getName() << " is a ";
 	if (!rhs.isSigned())
 		stream << "un";
 	stream << "signed form" << std::endl;
