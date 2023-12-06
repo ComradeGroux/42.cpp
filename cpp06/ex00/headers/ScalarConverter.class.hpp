@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 17:51:45 by vgroux            #+#    #+#             */
-/*   Updated: 2023/09/01 15:41:19 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 18:58:35 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,23 @@
 # include <iostream>
 # include <string>
 # include <cctype>
+# include <climits>
+# include <cstdlib>
 
 class ScalarConverter
 {
 	private:
 		ScalarConverter(void);
-		bool	_isChar(std::string& input) const;
-		bool	_isInt(std::string& input) const;
-		bool	_isFloat(std::string& input) const;
-		bool	_isDouble(std::string& input) const;
-
+		static bool	_isChar(std::string input);
+		static bool	_isInt(std::string input);
+		static bool	_isFloat(std::string input);
+		static bool	_isDouble(std::string input);
+		
+		static void	print(char c);
+		static void	print(int i);
+		static void	print(float f);
+		static void	print(double d);
+		
 	public:
 		static void convert(std::string str);
 };
