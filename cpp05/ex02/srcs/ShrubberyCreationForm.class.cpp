@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:05:37 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/04 18:36:33 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:03:28 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ bool	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		if (require(executor))
 		{
 			std::ofstream output;
-			output.open(this->getTarget() + "_shrubbery");
+			const std::string ext = "_shrubbery";
+			output.open((this->getTarget() + ext).c_str());
 			printTree(".", output);
-			return true;
 		}
 		else
 			return false;
@@ -57,31 +57,32 @@ bool	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
+		return false;
 	}
-	
+	return true;
 }
 
-void	ShrubberyCreationForm::printTree(char* path, std::ostream& output, int depth = 0) const
+void	ShrubberyCreationForm::printTree(const char* path, std::ofstream& output, int depth) const
 {
 	DIR* dir = opendir(path);
 
-	if (dir == nullptr) {
+	if (!dir) {
 		std::cerr << "Erreur lors de l'ouverture du dossier " << path << std::endl;
 		return;
 	}
 
 	dirent* entry;
 
-	while ((entry = readdir(dir)) != nullptr) {
+	while ((entry = readdir(dir))) {
 		if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
 			for (int i = 0; i < depth; ++i) {
-				std::cout << "  ";
+				output << "  ";
 			}
-			std::cout << "|-- " << entry->d_name << std::endl;
+			output << "|-- " << entry->d_name << std::endl;
 
 			if (entry->d_type == DT_DIR) {
 				std::string newPath = std::string(path) + "/" + entry->d_name;
-				printTree(newPath.c_str(), depth + 1);
+				printTree(newPath.c_str(), output, depth + 1);
 			}
 		}
 	}

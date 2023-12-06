@@ -1,9 +1,10 @@
 #ifndef BUREAUCRAT_CLASS_HPP
 # define BUREAUCRAT_CLASS_HPP
 
-# include "ShrubberyCreationForm.class.hpp"
+# include "AForm.class.hpp"
 # include <iostream>
 
+class AForm;
 
 class Bureaucrat
 {

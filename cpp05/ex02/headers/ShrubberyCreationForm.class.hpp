@@ -6,12 +6,11 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:59:53 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/04 18:48:06 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 14:56:06 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERY_CREATION_FORM_CLASS_HPP
-# define SHRUBBERY_CREATION_FORM_CLASS_HPP
+#pragma once
 
 # include "AForm.class.hpp"
 # include <iostream>
@@ -20,9 +19,10 @@
 # include <dirent.h>
 # include <fstream>
 
+class AForm;
 class Bureaucrat;
 
-class ShrubberyCreationForm : public AForm
+class ShrubberyCreationForm: public AForm
 {
 	private:
 		std::string	_target;
@@ -40,5 +40,3 @@ class ShrubberyCreationForm : public AForm
 		bool	execute(Bureaucrat const & executor) const;
 		
 };
-
-#endif
