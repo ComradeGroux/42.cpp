@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:05:37 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 16:44:11 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 17:43:50 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
-	std::cout << "Default ShrubberyCreationForm's constructor called" << std::endl;
+	// std::cout << "Default ShrubberyCreationForm's constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src): AForm(src), _target(src.getTarget())
 {
-	std::cout << "Copy ShrubberyCreationForm's constructor called" << std::endl;
+	// std::cout << "Copy ShrubberyCreationForm's constructor called" << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& src)
 {
-	std::cout << "Assignement ShrubberyCreationForm's constructor called" << std::endl;
+	// std::cout << "Assignement ShrubberyCreationForm's constructor called" << std::endl;
 	if (this != &src)
 		*this = src;
 	return (*this);
@@ -32,7 +32,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-	std::cout << "ShrubberyCreationForm's destructor called" << std::endl;
+	// std::cout << "ShrubberyCreationForm's destructor called" << std::endl;
 }
 
 std::string	ShrubberyCreationForm::getTarget(void) const

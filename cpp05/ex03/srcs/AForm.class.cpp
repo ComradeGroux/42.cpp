@@ -6,18 +6,23 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:02:27 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 16:43:58 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 17:43:12 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.class.hpp"
+
+AForm::AForm(void): _name("default"), _signed(false), _gradeSign(150), _gradeExe(150)
+{
+	// std::cout << "Default AForm's constructor called" << std::endl;
+}
 
 AForm::AForm(std::string name, int gradeToSign, int gradeToExe):
 			_name(name),
 			_gradeSign(_validateGrade(gradeToSign)),
 			_gradeExe(_validateGrade(gradeToExe))
 {
-	std::cout << "Default AForm's constructor called" << std::endl;
+	// std::cout << "AForm's constructor called" << std::endl;
 	_signed = false;
 }
 
@@ -26,13 +31,13 @@ AForm::AForm(const AForm& src):
 			_gradeSign(_validateGrade(src.getGradeToSign())),
 			_gradeExe(_validateGrade(src.getGradeToExecute()))
 {
-	std::cout << "Copy AForm's constructor called" << std::endl;
+	// std::cout << "Copy AForm's constructor called" << std::endl;
 	_signed = src.isSigned();
 }
 
 AForm::~AForm(void)
 {
-	std::cout << "AForm's destructor called" << std::endl;
+	// std::cout << "AForm's destructor called" << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& rhs)

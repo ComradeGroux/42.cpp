@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:48:04 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 16:08:21 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 17:44:17 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(_validateGrade(grade))
 {
-	std::cout << "Default Bureaucrat's constructor called" << std::endl;
+	// std::cout << "Default Bureaucrat's constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src): _name(src._name), _grade(_validateGrade(src._grade))
 {
-	std::cout << "Copy Bureaucrat's constructor called" << std::endl;
+	// std::cout << "Copy Bureaucrat's constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Bureaucrat's destructor called" << std::endl;
+	// std::cout << "Bureaucrat's destructor called" << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs)
 {
-	std::cout << "Assignement Bureaucrat's constructor called" << std::endl;
+	// std::cout << "Assignement Bureaucrat's constructor called" << std::endl;
 	if (this != &rhs)
 		_grade = rhs.getGrade();
 	return *this;

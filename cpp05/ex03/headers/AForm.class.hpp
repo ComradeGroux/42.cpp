@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:20:58 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 15:56:12 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 17:21:16 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ class AForm
 		void				require(const Bureaucrat &b) const;
 		
 	public:
+		AForm(void);
 		AForm(std::string name, int gradeToSign, int gradeToExe);
 		AForm(const AForm& src);
-		~AForm(void);
 		AForm &operator=(const AForm& rhs);
+		virtual	~AForm(void);
 
 		const std::string	getName(void) const;
 		bool				isSigned(void) const;

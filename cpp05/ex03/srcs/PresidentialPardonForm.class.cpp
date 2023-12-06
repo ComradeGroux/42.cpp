@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:57:01 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 16:12:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 17:43:32 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-	std::cout << "Default PresidentialPardonForm's constructor called" << std::endl;
+	// std::cout << "Default PresidentialPardonForm's constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src): AForm(src), _target(src.getTarget())
 {
-	std::cout << "Copy PresidentialPardonForm's constructor called" << std::endl;
+	// std::cout << "Copy PresidentialPardonForm's constructor called" << std::endl;
 }
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& src)
 {
-	std::cout << "Assignement PresidentialPardonForm's constructor called" << std::endl;
+	// std::cout << "Assignement PresidentialPardonForm's constructor called" << std::endl;
 	if (this != &src)
 		*this = src;
 	return (*this);
@@ -32,7 +32,7 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-	std::cout << "PresidentialPardonForm's destructor called" << std::endl;
+	// std::cout << "PresidentialPardonForm's destructor called" << std::endl;
 }
 
 std::string	PresidentialPardonForm::getTarget(void) const

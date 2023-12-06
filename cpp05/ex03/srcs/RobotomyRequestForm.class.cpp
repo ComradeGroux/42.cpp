@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:09:19 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 16:44:03 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 17:43:43 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-	std::cout << "Default RobotomyRequestForm's constructor called" << std::endl;
+	// std::cout << "Default RobotomyRequestForm's constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src): AForm(src), _target(src.getTarget())
 {
-	std::cout << "Copy RobotomyRequestForm's constructor called" << std::endl;
+	// std::cout << "Copy RobotomyRequestForm's constructor called" << std::endl;
 }
 
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& src)
 {
-	std::cout << "Assignement RobotomyRequestForm's constructor called" << std::endl;
+	// std::cout << "Assignement RobotomyRequestForm's constructor called" << std::endl;
 	if (this != &src)
 		*this = src;
 	return (*this);
@@ -32,7 +32,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& s
 
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {
-	std::cout << "RobotomyRequestForm's destructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm's destructor called" << std::endl;
 }
 
 std::string	RobotomyRequestForm::getTarget(void) const
