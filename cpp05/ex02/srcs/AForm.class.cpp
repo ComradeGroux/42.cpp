@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:02:27 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/04 17:56:23 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 16:43:58 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,16 @@ int AForm::getGradeToExecute(void) const
 	return (_gradeExe);
 }
 
-bool	AForm::require(const Bureaucrat& b) const
+void	AForm::require(const Bureaucrat& b) const
 {
-	if (b.getGrade() > this->getGradeToExecute())
+	if (this->isSigned() == false)
+	{
+		throw AForm::NotSignedException();
+	}
+	else if (b.getGrade() > this->getGradeToExecute())
 	{
 		throw AForm::GradeTooLowException();
 	}
-	else if (this->isSigned() == false)
-	{
-		return false;
-	}
-	return true;
 }
 
 void AForm::beSigned(const Bureaucrat& b)
@@ -105,6 +104,11 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
 	return "GradeTooLowException";
+}
+
+const char *AForm::NotSignedException::what() const throw()
+{
+	return "NotSignedException";
 }
 
 std::ostream &operator<<(std::ostream &stream, const AForm& rhs)

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 14:20:58 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 14:43:38 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 15:56:12 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class AForm
 		int					_validateGrade(int n);
 
 	protected:
-		bool				require(const Bureaucrat &b) const;
+		void				require(const Bureaucrat &b) const;
 		
 	public:
 		AForm(std::string name, int gradeToSign, int gradeToExe);
@@ -40,7 +40,7 @@ class AForm
 		int					getGradeToSign(void) const;
 		int					getGradeToExecute(void) const;
 
-		virtual bool		execute(Bureaucrat const & executor) const = 0;
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 		
 		void				beSigned(const Bureaucrat &b);
 
@@ -50,6 +50,11 @@ class AForm
 				const char *what() const throw();
 		};
 		class GradeTooLowException: public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+		class NotSignedException: public std::exception
 		{
 			public:
 				const char *what() const throw();

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:05:37 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 15:03:28 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 16:44:11 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,23 @@ std::string	ShrubberyCreationForm::getTarget(void) const
 	return _target;
 }
 
-bool	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	try
 	{
-		if (require(executor))
-		{
-			std::ofstream output;
-			const std::string ext = "_shrubbery";
-			output.open((this->getTarget() + ext).c_str());
-			printTree(".", output);
-		}
-		else
-			return false;
+		require(executor);
+
+		std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+		std::ofstream output;
+		const std::string ext = "_shrubbery";
+		output.open((this->getTarget() + ext).c_str());
+		printTree(".", output);
+		output.close();
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
-		return false;
+		std::cerr << executor.getName() << " can't execute the form " << this->getName() << " because of an exception: " << e.what() << std::endl;
 	}
-	return true;
 }
 
 void	ShrubberyCreationForm::printTree(const char* path, std::ofstream& output, int depth) const

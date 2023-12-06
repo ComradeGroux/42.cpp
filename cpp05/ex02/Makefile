@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/12/06 14:46:32 by vgroux           ###   ########.fr        #
+#    Updated: 2023/12/06 15:58:09 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ DIR_H = headers/
 
 SRCS_LST =	main.cpp \
 			Bureaucrat.class.cpp \
-			AForm.class.cpp ShrubberyCreationForm.class.cpp \
+			AForm.class.cpp \
+			ShrubberyCreationForm.class.cpp RobotomyRequestForm.class.cpp PresidentialPardonForm.class.cpp \
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 

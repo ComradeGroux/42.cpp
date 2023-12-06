@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:48:04 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/04 18:37:14 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/06 16:08:21 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,9 @@ void Bureaucrat::signForm(AForm &f) const
 	{
 		std::cout << _name << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
 	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form) const
+{
+	form.execute(*this);
 }
