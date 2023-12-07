@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:06:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 20:11:30 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/07 16:06:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 void	ScalarConverter::convert(std::string str)
 {
-	if (ScalarConverter::_isChar(str))
+	t_special	spe;
+
+	if (str.empty())
+		ScalarConverter::print(str[0]);
+	else if (ScalarConverter::_isSpecial(str, &spe))
+		ScalarConverter::print(spe);
+	else if (ScalarConverter::_isChar(str))
 		ScalarConverter::print(str[0]);
 	else if (ScalarConverter::_isInt(str))
 		ScalarConverter::print(std::atoi(str.c_str()));
@@ -22,6 +28,34 @@ void	ScalarConverter::convert(std::string str)
 		ScalarConverter::print(std::atof(str.c_str()));
 	else if (ScalarConverter::_isDouble(str))
 		ScalarConverter::print(std::strtod(str.c_str(), NULL));
+}
+
+bool	ScalarConverter::_isSpecial(std::string input, t_special *s)
+{
+	t_special	def[] =
+	{
+		{"-inff", "Impossible", "Impossible", "-inff", "-inf"},
+		{"+inff", "Impossible","Impossible", "inff", "inf"},
+		{"nanf", "Impossible", "Impossible", "nanf", "nan"},
+		{"-inf", "Impossible", "Impossible", "-inff", "-inf"},
+		{"+inf", "Impossible", "Impossible", "inff", "inf"},
+		{"nan", "Impossible", "Impossible", "nanf", "nan"},
+		{"", "", "", "", ""}
+	};
+
+	for  (int i = 0; def[i].key != ""; i++)
+	{
+		if (def[i].key == input)
+		{
+			s->key = def[i].key;
+			s->c = def[i].c;
+			s->i = def[i].i;
+			s->f = def[i].f;
+			s->d = def[i].d;
+			return (true);
+		}
+	}
+	return (false);
 }
 
 bool	ScalarConverter::_isChar(std::string input)
@@ -56,14 +90,70 @@ bool	ScalarConverter::_isInt(std::string input)
 
 bool	ScalarConverter::_isFloat(std::string input)
 {
-	(void)input;
+	size_t	i = 0;
+
+	while (std::isspace(input[i]))
+		i++;
+	if (input[i] == '+' || input[i] == '-')
+		i++;
+	while (std::isdigit(input[i]))
+		i++;
+	if (input[i] != '.' || input[i + 1] == '\0')
+		return (false);
+	i++;
+	while (std::isdigit(input[i]))
+		i++;
+	if (input[i] == 'e' || input[i] == 'E')
+	{
+		if (input[i] == '+' || input[i] == '-')
+			i++;
+		if (!std::isdigit(input[i]))
+			return false;
+		while (std::isdigit(input[i]))
+			i++;
+	}
+	if (input[i] != 'f' && input[i] != 'F')
+		return false;
+	else if (input[i + 1] != '\0')
+		return false;
 	return true;
 }
 
 bool	ScalarConverter::_isDouble(std::string input)
 {
-	(void)input;
+		size_t	i = 0;
+
+	while (std::isspace(input[i]))
+		i++;
+	if (input[i] == '+' || input[i] == '-')
+		i++;
+	while (std::isdigit(input[i]))
+		i++;
+	if (input[i] != '.' || input[i + 1] == '\0')
+		return (false);
+	i++;
+	while (std::isdigit(input[i]))
+		i++;
+	if (input[i] == 'e' || input[i] == 'E')
+	{
+		if (input[i] == '+' || input[i] == '-')
+			i++;
+		if (!std::isdigit(input[i]))
+			return false;
+		while (std::isdigit(input[i]))
+			i++;
+	}
+	if (input[i] != '\0')
+		return false;
 	return true;
+}
+
+void	ScalarConverter::print(t_special s)
+{
+	std::cout << "char	: " << s.c << std::endl;
+	std::cout << "int	: " << s.i << std::endl;
+	std::cout << "float	: " << s.f << std::endl;
+	std::cout << "double	: " << s.d << std::endl;
 }
 
 void	ScalarConverter::print(char c)
