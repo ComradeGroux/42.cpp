@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/12/07 17:25:57 by vgroux           ###   ########.fr        #
+#    Updated: 2023/12/07 17:22:28 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ DIR_S = srcs/
 DIR_O = objs/
 DIR_H = headers/
 
-SRCS_LST =	main.cpp \
-			ScalarConverter.class.cpp
+SRCS_LST =	Serializer.class.cpp main.cpp
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 
