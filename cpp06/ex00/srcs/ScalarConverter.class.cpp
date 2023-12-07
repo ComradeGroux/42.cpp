@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:06:20 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/07 16:06:38 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/07 16:08:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ScalarConverter::convert(std::string str)
 		ScalarConverter::print(std::atof(str.c_str()));
 	else if (ScalarConverter::_isDouble(str))
 		ScalarConverter::print(std::strtod(str.c_str(), NULL));
+	else
+		std::cerr << "Conversion impossible (doesn't make any sense or overflow)" << std::endl;
 }
 
 bool	ScalarConverter::_isSpecial(std::string input, t_special *s)
