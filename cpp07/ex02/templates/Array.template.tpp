@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:18:33 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/12 17:10:52 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/12 18:18:16 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Array
 		size_t	_size;
 
 	public:
-		Array(void): _arr(NULL), _size(0)
+		Array(void): _arr(new T(0)), _size(0)
 		{
 		};
 		Array(unsigned int n): _arr(new T(n)), _size(n)
@@ -39,8 +39,7 @@ class Array
 				return *this;
 			else if (_size != src._size)
 			{
-				if (_size != 0)
-					delete[] _arr;
+				delete[] _arr;
 				_arr = new T[src._size];
 				_size = src._size;
 			}
@@ -52,16 +51,14 @@ class Array
 		};
 		~Array(void)
 		{
-			if (_size != 0)
-				delete[] _arr;
+			delete[] _arr;
 		};
 
-		T&	operator[](size_t index) const
+		T&	operator[](int index) const
 		{
-			if (index > _size)
+			if (index < 0 || index >= _size)
 				throw Array::InvalidIndex();
-			else
-				return _arr[index];
+			return _arr[index];
 		};
 
 		int	size(void) const

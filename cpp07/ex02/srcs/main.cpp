@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/12 17:12:40 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/12 17:18:57 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(void)
 {
 	Array<int>	int_arr((unsigned int)42);
 	srand(time(0));
-	// std::cout << "corrupted after this" << std::endl;
 	for (int i = 0; i < 42; i++)
 	{
 		int_arr[i] = rand();
