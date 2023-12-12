@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/12/07 17:57:36 by vgroux           ###   ########.fr        #
+#    Updated: 2023/12/12 17:16:27 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RED = \033[0;31m
 GREY = \033[38;5;240m
 RESET = \033[0m
 
-NAME =     templates
+NAME =     temp
 
 CC =         c++
 CFLAGS =     -Wall -Wextra -Werror -std=c++98 -pedantic
