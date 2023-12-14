@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:18:33 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/12 18:18:16 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/14 16:47:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ class Array
 		size_t	_size;
 
 	public:
-		Array(void): _arr(new T(0)), _size(0)
+		Array(void): _arr(new T[0]), _size(0)
 		{
 		};
-		Array(unsigned int n): _arr(new T(n)), _size(n)
+		Array(unsigned int n): _arr(new T[n]), _size(n)
 		{
+			// std::cout << "unsigned int constructor" << std::endl;
 		};
 		Array(const Array& src)
 		{
@@ -54,11 +55,11 @@ class Array
 			delete[] _arr;
 		};
 
-		T&	operator[](int index) const
+		T&	operator[](size_t index)
 		{
-			if (index < 0 || index >= _size)
+			if (index >= _size)
 				throw Array::InvalidIndex();
-			return _arr[index];
+			return _arr[index];	
 		};
 
 		int	size(void) const
