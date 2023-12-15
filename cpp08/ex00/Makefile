@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/12/15 19:27:42 by vgroux           ###   ########.fr        #
+#    Updated: 2023/12/15 19:31:23 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJS =		${SRCS:${DIR_S}%.cpp=${DIR_O}%.o}
 HDRS_LST = 
 HDRS = ${addprefix ${DIR_H}, ${HDRS_LST}}
 
-TMPLT_LST = 
+TMPLT_LST = easyfind.template.tpp
 TMPLTS = ${addprefix ${DIR_T}, ${TMPLT_LST}}
 
 ${NAME}: ${OBJS} ${HDRS} ${TMPLTS}
