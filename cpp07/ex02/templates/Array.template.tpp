@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:18:33 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/14 16:47:38 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/15 19:13:41 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Array
 		};
 		Array(unsigned int n): _arr(new T[n]), _size(n)
 		{
-			// std::cout << "unsigned int constructor" << std::endl;
+			// std::cout << "unsigned int constructor: " << n << std::endl;
 		};
 		Array(const Array& src)
 		{
