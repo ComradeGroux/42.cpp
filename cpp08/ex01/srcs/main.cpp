@@ -6,9 +6,11 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/15 21:06:48 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/16 13:25:23 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Span.class.hpp"
 
 int	main(void)
 {

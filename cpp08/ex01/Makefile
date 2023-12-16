@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/12/15 21:06:57 by vgroux           ###   ########.fr        #
+#    Updated: 2023/12/16 13:34:07 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,12 @@ DIR_O = objs/
 DIR_H = headers/
 DIR_T = templates/
 
-SRCS_LST =	main.cpp
+SRCS_LST =	main.cpp \
+			Span.class.cpp
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 OBJS =		${SRCS:${DIR_S}%.cpp=${DIR_O}%.o}
 
-HDRS_LST = 
+HDRS_LST = Span.class.hpp
 HDRS = ${addprefix ${DIR_H}, ${HDRS_LST}}
 
 TMPLT_LST = 
