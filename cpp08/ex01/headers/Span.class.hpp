@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:07:29 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/16 13:48:15 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/17 20:59:59 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <exception>
 #include <vector>
 #include <algorithm>
+#include <limits>
 
 class Span
 {
@@ -39,6 +40,12 @@ class Span
 		unsigned int	longestSpan(void) const;
 
 		class TooMuchElementException: public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+
+		class NotEnoughElementException: public std::exception
 		{
 			public:
 				const char *what() const throw();
