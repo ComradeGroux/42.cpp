@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:34:09 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/17 21:06:42 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/17 21:29:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,16 @@ void	Span::addNumber(int n)
 		throw Span::TooMuchElementException();
 }
 
+void	Span::addNumber(std::vector<int>::iterator a, std::vector<int>::iterator b)
+{
+	std::vector<int>	tmp(a, b);
+	if (_size - _content.size() < tmp.size())
+		throw Span::TooMuchElementException();
+	
+	for (unsigned long i = 0; i < tmp.size(); i++)
+		_content.push_back(tmp[i]);
+}
+
 unsigned int	Span::shortestSpan(void) const
 {
 	if (_content.size() < 2)
@@ -102,6 +112,11 @@ unsigned int	Span::longestSpan(void) const
 			sspan = maxValue - minValue;
 	}
 	return sspan;
+}
+
+std::vector<int>	Span::getContent(void) const
+{
+	return _content;
 }
 
 const char *Span::TooMuchElementException::what() const throw()

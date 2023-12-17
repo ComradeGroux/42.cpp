@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:07:29 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/17 20:59:59 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/12/17 21:19:53 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,13 @@ class Span
 		~Span(void);
 
 		void	addNumber(int n);
+		void	addNumber(std::vector<int>::iterator a, std::vector<int>::iterator b);
 
 		unsigned int	shortestSpan(void) const;
 		unsigned int	longestSpan(void) const;
 
+		std::vector<int>	getContent(void) const;
+		
 		class TooMuchElementException: public std::exception
 		{
 			public:
