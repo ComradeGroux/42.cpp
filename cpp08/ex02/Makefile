@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 22:39:25 by vgroux            #+#    #+#              #
-#    Updated: 2023/12/17 21:36:53 by vgroux           ###   ########.fr        #
+#    Updated: 2023/12/19 16:26:15 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,15 +26,14 @@ DIR_O = objs/
 DIR_H = headers/
 DIR_T = templates/
 
-SRCS_LST =	main.cpp \
-			MutantStack.class.cpp
+SRCS_LST =	main.cpp
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LST}}
 OBJS =		${SRCS:${DIR_S}%.cpp=${DIR_O}%.o}
 
-HDRS_LST =	MutantStack.class.hpp
+HDRS_LST =	MutantStack.template.hpp
 HDRS = ${addprefix ${DIR_H}, ${HDRS_LST}}
 
-TMPLT_LST =
+TMPLT_LST = MutantStack.template.tpp
 TMPLTS = ${addprefix ${DIR_T}, ${TMPLT_LST}}
 
 ${NAME}: ${OBJS} ${HDRS} ${TMPLTS}
