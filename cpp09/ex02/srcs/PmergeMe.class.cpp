@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 21:28:16 by vgroux            #+#    #+#             */
-/*   Updated: 2024/01/10 17:28:05 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/01/15 18:53:46 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ PmergeMe::PmergeMe(const PmergeMe& src)
 
 PmergeMe&	PmergeMe::operator=(const PmergeMe& src)
 {
-	// _list = src._list;
-	// _vector = src._vector;
 	(void)src;
 	return *this;
 }
@@ -36,12 +34,67 @@ std::list<int>	PmergeMe::parseList(int argc, char **argv)
 	{
 		std::string	arg = argv[i];
 		int val = std::atoi(arg.c_str());
-		std::cout << val << std::endl;
 		if (val <= 0)
 			throw std::invalid_argument("Arguments must be numbers greater than 0");
 		lis.push_back(val);
 	}
 	return	lis;
+}
+
+std::list<int>	PmergeMe::sort(std::list<int> input)
+{
+	std::list<int>	left;
+	std::list<int>	right;
+	int				mid = input.size() / 2;
+	int				i = 0;
+
+	if (input.size() <= 1)
+		return input;
+
+	for (std::list<int>::iterator it = input.begin(); it != input.end(); it++)
+	{
+		if (i < mid)
+			left.push_back(*it);
+		else
+			right.push_back(*it);
+		i++;
+	}
+	left = sort(left);
+	right = sort(right);
+
+	return (merge(left, right));
+}
+
+std::list<int>	PmergeMe::merge(std::list<int> left, std::list<int> right)
+{
+	std::list<int>	res;
+
+	while (!left.empty() && !right.empty())
+	{
+		if (left.front() <= right.front())
+		{
+			res.push_back(left.front());
+			left.pop_front();
+		}
+		else
+		{
+			res.push_back(right.front());
+			right.pop_front();
+		}
+	}
+	
+	while (!left.empty())
+	{
+		res.push_back(left.front());
+		left.pop_front();
+	}
+	while (!right.empty())
+	{
+		res.push_back(right.front());
+		right.pop_front();
+	}
+
+	return (res);
 }
 
 std::vector<int>	PmergeMe::parseVector(int argc, char **argv)
@@ -58,53 +111,69 @@ std::vector<int>	PmergeMe::parseVector(int argc, char **argv)
 	return vec;
 }
 
-std::list<int>	PmergeMe::sort(std::list<int> in)
+std::vector<int>	PmergeMe::sort(std::vector<int> input)
 {
-	_timeList = clock();
+	std::vector<int>	left;
+	std::vector<int>	right;
+	int					mid = input.size() / 2;
+	int					i = 0;
 
-	std::list<int>	newList = in;
+	if (input.size() <= 1)
+		return input;
 
-	_timeList = clock() - _timeList;
-	return (newList);
+	// Create pairs
+	for (std::vector<int>::iterator it = input.begin(); it != input.end(); it++)
+	{
+		if (i < mid)
+			left.push_back(*it);
+		else
+			right.push_back(*it);
+		i++;
+	}
+	left = sort(left);
+	right = sort(right);
+
+	return (merge(left, right));
 }
 
-std::vector<int>	PmergeMe::sort(std::vector<int> in)
+std::vector<int>	PmergeMe::merge(std::vector<int> left, std::vector<int> right)
 {
-	_timeVector = clock();
-	std::vector<int> newVector = in;
-	for (int i = 0; i < 9999; i++)
-		;
-	_timeVector = clock() - _timeVector;
-	return (newVector);
-}
-/*
-	Regrouper les éléments de X X en ⌊ n / 2 ⌋ {\displaystyle \lfloor n/2\rfloor } paires d'éléments, arbitrairement, laissant un élément non apparié s'il y a un nombre impair d'éléments.
+	std::vector<int>	res;
 
-    Effectuer ⌊ n / 2 ⌋ {\displaystyle \lfloor n/2\rfloor } comparaisons, une par paire, pour déterminer le plus grand des deux éléments de chaque paire (déterminer le maximum).
-    
-	Trier récursivement les ⌊ n / 2 ⌋ {\displaystyle \lfloor n/2\rfloor } plus grands éléments de chaque paire, créant une séquence triée S S de ⌊ n / 2 ⌋ {\displaystyle \lfloor n/2\rfloor } des éléments d’entrée, par ordre croissant.
-    
-	Insérer au début de S S l'élément qui a été apparié au premier et au plus petit élément de S S .
-    
-	Insérer le reste des ⌈ n / 2 ⌉ − 1 {\displaystyle \lceil n/2\rceil -1} éléments de X ∖ S {\displaystyle X\setminus S} dans S S, un à la fois, avec un ordre d'insertion spécialement choisi décrit ci-dessous. Utiliser la recherche dichotomique dans les sous-séquences de S S (comme décrit ci-dessous) pour déterminer la position à laquelle chaque élément doit être inséré.
-*/
+	while (!left.empty() && !right.empty())
+	{
+		if (left.front() <= right.front())
+		{
+			res.push_back(left.front());
+			left.erase(left.begin());
+		}
+		else
+		{
+			res.push_back(right.front());
+			right.erase(right.begin());
+		}
+	}
+	
+	while (!left.empty())
+	{
+		res.push_back(left.front());
+		left.erase(left.begin());
+	}
+	while (!right.empty())
+	{
+		res.push_back(right.front());
+		right.erase(right.begin());
+	}
+
+	return (res);
+}
+
 
 PmergeMe::~PmergeMe(void)
 {
 }
 
-void	PmergeMe::printDeltaTime(t_type flag)
+void	PmergeMe::printDeltaTime(clock_t time)
 {
-	switch (flag)
-	{
-	case LIST:
-		std::cout << ((float)_timeList) / CLOCKS_PER_SEC;
-		break;
-	case VECTOR:
-		std::cout << ((float)_timeVector) / CLOCKS_PER_SEC;
-		break;
-	default:
-		throw std::runtime_error("Container not good");
-		break;
-	}
+	std::cout << std::fixed << ((float)time) / CLOCKS_PER_SEC;
 }

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2024/01/10 17:25:49 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/01/15 18:48:18 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,19 @@ int	main(int argc, char **argv)
 			std::cout << *it << " ";
 		std::cout << std::endl;
 
-
-		std::cout << "---- CALCUL ----" << std::endl;
+		clock_t timeList = clock();
 		list = PM.sort(list);
+		timeList = clock() - timeList;
+		clock_t timeVector = clock();
 		vector = PM.sort(vector);
-
+		timeVector = clock() - timeVector;
 		
 		std::cout << "After: \t";
 		for (std::list<int>::iterator it = list.begin(); it != list.end(); it++)
 			std::cout << *it << " ";
 		std::cout << std::endl;
-		std::cout << "Time to process a range of " << list.size() << " elements with std::list    : "; PM.printDeltaTime(LIST); std::cout << " s" << std::endl;
-		std::cout << "Time to process a range of " << vector.size() << " elements with std::vector: "; PM.printDeltaTime(VECTOR); std::cout << " s" << std::endl;
+		std::cout << "Time to process a range of " << list.size() << " elements with std::list  : "; PM.printDeltaTime(timeList); std::cout << " s" << std::endl;
+		std::cout << "Time to process a range of " << vector.size() << " elements with std::vector: "; PM.printDeltaTime(timeVector); std::cout << " s" << std::endl;
 	}
 	catch(const std::exception& e)
 	{

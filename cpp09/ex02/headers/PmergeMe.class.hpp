@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 20:00:59 by vgroux            #+#    #+#             */
-/*   Updated: 2024/01/10 17:18:14 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/01/15 18:52:26 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,12 @@
 #include <cstdlib>
 #include <ctime>
 
-typedef enum	e_type
-{
-	LIST,
-	VECTOR
-}	t_type;
-
 class PmergeMe
 {
 	private:
-		clock_t	_timeList;
-		clock_t	_timeVector;
-		// std::list<int>		_list;
-		// std::vector<int>	_vector;
-		
+		std::list<int>		merge(std::list<int> left, std::list<int> right);
+		std::vector<int>	merge(std::vector<int> left, std::vector<int> right);
+
 	public:
 		PmergeMe(void);
 		PmergeMe(const PmergeMe& src);
@@ -45,6 +37,5 @@ class PmergeMe
 		std::list<int>		sort(std::list<int> in);
 		std::vector<int>	sort(std::vector<int> in);
 
-		void	printDeltaTime(t_type flag);
-
+		void	printDeltaTime(clock_t time);
 };
