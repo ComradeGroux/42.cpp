@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:18:33 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/15 19:13:41 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/01/19 17:42:16 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ class Array
 		};
 		Array&	operator=(const Array& src)
 		{
-			if (*this == src)
-				return *this;
-			else if (_size != src._size)
+			if (_size != src._size)
 			{
 				delete[] _arr;
 				_arr = new T[src._size];

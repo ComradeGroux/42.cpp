@@ -6,14 +6,14 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/15 19:21:59 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/01/19 18:07:49 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.template.tpp"
 #include <cstdlib>
 
-#define NB_ELEM 5
+#define NB_ELEM 75
 
 int	main(void)
 {
@@ -46,7 +46,7 @@ int	main(void)
 		char_arr[i] = rand() % 128; // random char (0 / 127)
 	try
 	{
-		std::cout << "Value at char_arr[0]: " << char_arr[0] << std::endl;
+		std::cout << "Value at char_arr[0]: '" << char_arr[0] << "'" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
