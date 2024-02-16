@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.template.tpp                              :+:      :+:    :+:   */
+/*   easyfind.template.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 19:31:31 by vgroux            #+#    #+#             */
-/*   Updated: 2024/02/16 16:12:08 by vgroux           ###   ########.fr       */
+/*   Created: 2024/02/16 16:06:23 by vgroux            #+#    #+#             */
+/*   Updated: 2024/02/16 16:11:40 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-// #include "easyfind.template.hpp"
+#include <algorithm>
+#include <stdexcept>
+#include "easyfind.template.tpp"
 
 template <typename T>
-typename T::value_type easyfind(T& cont, int toFind)
-{
-	typename T::iterator it = std::find(cont.begin(), cont.end(), toFind);
-	
-	if (it != cont.end())
-		return *it;
-	else
-		throw std::runtime_error("NotFoundException");
-}
+typename T::value_type easyfind(T& cont, int toFind);

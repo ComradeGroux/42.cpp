@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:54:57 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/06 17:44:06 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/16 12:33:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,3 @@ AForm*	Intern::makeForm(std::string form, std::string target) const
 const char* Intern::FormUnexistantException::what() const throw() {
     return "Form does not exist";
 }
-
-
-
-
-
-
-
-
-
-

@@ -6,11 +6,11 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/15 21:04:38 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/16 16:09:28 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.template.tpp"
+#include "easyfind.template.hpp"
 #include <iostream>
 #include <vector>
 #include <list>
