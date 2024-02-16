@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 21:07:29 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/17 21:19:53 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/16 16:40:41 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ class Span
 
 		std::vector<int>	getContent(void) const;
 		
+		unsigned int	getSize(void) const;
+
 		class TooMuchElementException: public std::exception
 		{
 			public:

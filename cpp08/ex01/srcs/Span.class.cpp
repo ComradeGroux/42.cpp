@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:34:09 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/17 21:29:38 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/16 16:41:25 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ unsigned int	Span::shortestSpan(void) const
 	std::vector<int>	cp = _content;
 	std::sort(cp.begin(), cp.end());
 
-	// std::cout << cp[0] << "\t" << cp[1] << std::endl;
 	long			minValue;
 	long			maxValue;
 	unsigned int	sspan = __UINT32_MAX__;
@@ -100,23 +99,20 @@ unsigned int	Span::longestSpan(void) const
 
 	std::vector<int>	cp = _content;
 	std::sort(cp.begin(), cp.end());
-
-	long			minValue;
-	long			maxValue;
-	unsigned int	sspan = 0;
-	for (unsigned int i = 0; i < cp.size(); i++)
-	{
-		minValue = min(cp[i], cp[i + 1]);
-		maxValue = max(cp[i], cp[i + 1]);
-		if (maxValue - minValue >	 sspan)
-			sspan = maxValue - minValue;
-	}
-	return sspan;
+	
+	long			minValue = *(cp.begin());
+	long			maxValue = *(cp.end() - 1);
+	return maxValue - minValue;
 }
 
 std::vector<int>	Span::getContent(void) const
 {
 	return _content;
+}
+
+unsigned int	Span::getSize(void) const
+{
+	return _size;
 }
 
 const char *Span::TooMuchElementException::what() const throw()
