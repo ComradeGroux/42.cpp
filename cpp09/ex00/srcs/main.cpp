@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/21 18:59:11 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/19 12:43:26 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(int argc, char **argv)
 		if (!file.is_open())
 			throw BitcoinExchange::UnableToOpenInputFileException();
 		std::getline(file, line); // Pour enlever la premier ligne (nom des colonnes)
+		if (line.compare("date | value"))
+			throw std::invalid_argument("in input file: doesn't have the columns format");;
 		while (std::getline(file, line))
 		{
 			std::stringstream	data(line);

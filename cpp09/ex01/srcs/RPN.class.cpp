@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 20:03:53 by vgroux            #+#    #+#             */
-/*   Updated: 2023/12/21 21:22:01 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/19 16:05:00 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	RPN::execute(std::string str)
 			throw std::invalid_argument("Invalid character");
 		
 	}
+	if (_values.size() != 1)
+		throw std::invalid_argument("Not enough operators");
 	return _values.top();
 }
 
