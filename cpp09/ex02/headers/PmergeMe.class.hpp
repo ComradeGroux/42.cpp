@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 20:00:59 by vgroux            #+#    #+#             */
-/*   Updated: 2024/01/15 18:52:26 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/19 18:27:28 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,17 @@ class PmergeMe
 		~PmergeMe(void);
 
 		std::list<int>		parseList(int argc, char **argv);
-		std::vector<int>	parseVector(int argc, char **argv);
-
 		std::list<int>		sort(std::list<int> in);
-		std::vector<int>	sort(std::vector<int> in);
+
+		std::vector<int>					parseVector(int argc, char **argv);
+		std::vector<int>					sort(std::vector<int> in);
+		std::vector<std::pair<int, int> >	createSortPairs(std::vector<int> input);
+		std::vector<std::pair<int, int> >	sortPairByLarger(std::vector<std::pair<int, int> > input);
+		std::vector<int>					createS(std::vector<std::pair<int, int> >	vec, int straggler);
+		std::vector<int>					createS(std::vector<std::pair<int, int> >	vec);
+
+		int					jacobstahl(int n);
+		std::vector<int>	buildJacob(int len);
 
 		void	printDeltaTime(clock_t time);
 };
