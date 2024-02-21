@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 20:00:59 by vgroux            #+#    #+#             */
-/*   Updated: 2024/02/21 12:37:59 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/21 12:42:22 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class PmergeMe
 		
 		int					jacobstahl(int n);
 		std::vector<int>	buildJacob(int len);
+		
 	public:
 		PmergeMe(void);
 		PmergeMe(const PmergeMe& src);
@@ -49,4 +50,5 @@ class PmergeMe
 		std::deque<int>		sort(std::deque<int> input);
 
 		void	printDeltaTime(clock_t time);
+		
 };
