@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2024/01/15 18:48:18 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/21 12:18:37 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	main(int argc, char **argv)
 		std::list<int>		list = PM.parseList(argc, argv);
 		std::vector<int>	vector = PM.parseVector(argc, argv);
 		std::cout << "Before:\t";
-		for (std::list<int>::iterator it = list.begin(); it != list.end(); it++)
-			std::cout << *it << " ";
+		std::for_each(vector.begin(), vector.end(), print);
 		std::cout << std::endl;
 
 		clock_t timeList = clock();
@@ -36,8 +35,7 @@ int	main(int argc, char **argv)
 		timeVector = clock() - timeVector;
 		
 		std::cout << "After: \t";
-		for (std::list<int>::iterator it = list.begin(); it != list.end(); it++)
-			std::cout << *it << " ";
+		std::for_each(vector.begin(), vector.end(), print);
 		std::cout << std::endl;
 		std::cout << "Time to process a range of " << list.size() << " elements with std::list  : "; PM.printDeltaTime(timeList); std::cout << " s" << std::endl;
 		std::cout << "Time to process a range of " << vector.size() << " elements with std::vector: "; PM.printDeltaTime(timeVector); std::cout << " s" << std::endl;

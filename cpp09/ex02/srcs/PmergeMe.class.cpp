@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 21:28:16 by vgroux            #+#    #+#             */
-/*   Updated: 2024/02/19 18:42:12 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/21 12:23:05 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ PmergeMe::PmergeMe(const PmergeMe& src)
 PmergeMe&	PmergeMe::operator=(const PmergeMe& src)
 {
 	(void)src;
-	return *this;
+	return (*this);
 }
 
 std::list<int>	PmergeMe::parseList(int argc, char **argv)
@@ -49,7 +49,7 @@ std::list<int>	PmergeMe::parseList(int argc, char **argv)
 			throw std::invalid_argument("Arguments must be numbers greater than 0");
 		lis.push_back(val);
 	}
-	return	lis;
+	return (lis);
 }
 
 std::vector<int>	PmergeMe::parseVector(int argc, char **argv)
@@ -63,7 +63,7 @@ std::vector<int>	PmergeMe::parseVector(int argc, char **argv)
 			throw std::invalid_argument("Arguments contain a negative one");
 		vec.push_back(val);
 	}
-	return vec;
+	return (vec);
 }
 
 PmergeMe::~PmergeMe(void)
@@ -133,7 +133,7 @@ std::vector<std::pair<int, int> >	PmergeMe::createSortPairs(std::vector<int> inp
 		if (it->first > it->second)
 			std::swap(it->first, it->second);
 	}
-	return vec;
+	return (vec);
 }
 
 std::vector<std::pair<int, int> >	PmergeMe::sortPairByLarger(std::vector<std::pair<int, int> > input)
@@ -153,33 +153,60 @@ std::vector<std::pair<int, int> >	PmergeMe::sortPairByLarger(std::vector<std::pa
 	return (input);
 }
 
+std::vector<int>::iterator	PmergeMe::binsearch(std::vector<int>& vec, int item)
+{
+	for (size_t i = 0; i < vec.size(); i++)
+	{
+		if (vec[i] > item)
+			return (vec.begin() + i);
+	}
+	return (vec.end());
+}
 
 //	S = largest
 std::vector<int>	PmergeMe::createS(std::vector<std::pair<int, int> >	vec)
 {
-	std::for_each(vec.begin(), vec.end(), printPair);
-
 	// Split the pairs in 2 array, one with the smallest value of the pair and one with the largest
-	std::vector<int>	smallest;
-	std::vector<int>	largest;
+	std::vector<int>	pend;
+	std::vector<int>	main;
 
 	for (std::vector<std::pair<int, int> >::iterator it = vec.begin(); it != vec.end(); it++)
 	{
-		smallest.push_back(it->first);
-		largest.push_back(it->second);
+		pend.push_back(it->first);
+		main.push_back(it->second);
 	}
-	largest.insert(largest.begin(), smallest.front());
-	smallest.erase(smallest.begin());
-	std::cout << std::endl << "Largest:" << std::endl;
-	std::for_each(largest.begin(), largest.end(), print);
-	std::cout << std::endl << "Smallest:" << std::endl;
-	std::for_each(smallest.begin(), smallest.end(), print);
-	std::cout << std::endl;
+	main.insert(main.begin(), pend.front());
+	pend.erase(pend.begin());
 
-	std::vector<int>			jacob = buildJacob(smallest.size());
+	// ADD STRAGGLER AT THE END OF pend IF EXIST
+	std::vector<int>			jacob = buildJacob(pend.size());
+	std::vector<int>			index;
 	std::vector<int>::iterator	insertionPoint;
-
-	return largest;
+	size_t						i = 1;
+	int							item;
+	bool						wasJacob = false;
+	while (i <= pend.size())
+	{
+		if (jacob.size() != 0 && !wasJacob)
+		{
+			index.push_back(jacob[0]);
+			item = pend[jacob[0] - 1];
+			jacob.erase(jacob.begin());
+			wasJacob = true;
+		}
+		else
+		{
+			if (std::find(index.begin(), index.end(), i) != index.end())
+				i++;
+			item = pend[i - 1];
+			index.push_back(i);
+			wasJacob = false;
+		}
+		insertionPoint = binsearch(main, item);
+		main.insert(insertionPoint, item);
+		i++;
+	}
+	return (main);
 }
 
 std::vector<int>	PmergeMe::createS(std::vector<std::pair<int, int> >	vec, int straggler)
@@ -216,7 +243,7 @@ std::vector<int> PmergeMe::buildJacob(int len)
 
 std::list<int>	PmergeMe::sort(std::list<int> input)
 {
-	return input;
+	return (input);
 }
 
 /**
