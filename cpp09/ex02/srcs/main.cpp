@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2024/02/21 12:18:37 by vgroux           ###   ########.fr       */
+/*   Updated: 2024/02/21 12:38:48 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ int	main(int argc, char **argv)
 		if (argc < 2)
 			throw std::invalid_argument("Not enough arguments");
 		PmergeMe	PM;
-		std::list<int>		list = PM.parseList(argc, argv);
+		std::deque<int>		deque = PM.parseDeque(argc, argv);
 		std::vector<int>	vector = PM.parseVector(argc, argv);
 		std::cout << "Before:\t";
 		std::for_each(vector.begin(), vector.end(), print);
 		std::cout << std::endl;
 
-		clock_t timeList = clock();
-		list = PM.sort(list);
-		timeList = clock() - timeList;
+		clock_t timeDeque = clock();
+		deque = PM.sort(deque);
+		timeDeque = clock() - timeDeque;
 		clock_t timeVector = clock();
 		vector = PM.sort(vector);
 		timeVector = clock() - timeVector;
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 		std::cout << "After: \t";
 		std::for_each(vector.begin(), vector.end(), print);
 		std::cout << std::endl;
-		std::cout << "Time to process a range of " << list.size() << " elements with std::list  : "; PM.printDeltaTime(timeList); std::cout << " s" << std::endl;
+		std::cout << "Time to process a range of " << deque.size() << " elements with std::deque : "; PM.printDeltaTime(timeDeque); std::cout << " s" << std::endl;
 		std::cout << "Time to process a range of " << vector.size() << " elements with std::vector: "; PM.printDeltaTime(timeVector); std::cout << " s" << std::endl;
 	}
 	catch(const std::exception& e)
